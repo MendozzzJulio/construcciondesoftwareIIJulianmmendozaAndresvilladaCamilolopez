@@ -1,6 +1,7 @@
 package app.domain.models;
 
-public class IPacientModel {
+public class Pacient {
+	private Long patientID;
 	private Long idNumber;
 	private String completeName;
 	private String birthdate;
@@ -9,7 +10,19 @@ public class IPacientModel {
 	private Long phoneNumber;
 	private String emailAdress;
 	
-	
+	public Pacient(Long patientID,Long idNumber, String completeName, String birthdate, String gender, String address,
+			Long phoneNumber, String emailAdress) {
+		this.setPatientID(patientID);
+		this.idNumber = idNumber;
+		this.completeName = completeName;
+		this.birthdate = birthdate;
+		this.gender = gender;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.emailAdress = emailAdress;
+	}
+
+
 	public Long getIdNumber() {
 		return idNumber;
 	}
@@ -52,5 +65,17 @@ public class IPacientModel {
 	public void setEmailAdress(String emailAdress) {
 		this.emailAdress = emailAdress;
 	}
+
+
+	public Long getPatientID() {
+		return patientID;
+	}
+
+
+	public void setPatientID(Long patientID) {
+		this.patientID = patientID;
+	}
+
+
 
 }
