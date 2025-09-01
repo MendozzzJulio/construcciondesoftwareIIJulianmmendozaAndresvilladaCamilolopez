@@ -1,11 +1,12 @@
 package app.domain.model;
 
-public class Pacient extends Person{
+public class MedicalInsurance {
+	
 	private String insuranceCompanyName;
-	private String policyNumber;
+	private Long policyNumber;
 	private boolean policyStatus;
 	private String policyValidity;
-	private String gender;
+	private String policyTermination;
 	
 	
 	
@@ -15,10 +16,10 @@ public class Pacient extends Person{
 	public void setInsuranceCompanyName(String insuranceCompanyName) {
 		this.insuranceCompanyName = insuranceCompanyName;
 	}
-	public String getPolicyNumber() {
+	public Long getPolicyNumber() {
 		return policyNumber;
 	}
-	public void setPolicyNumber(String policyNumber) {
+	public void setPolicyNumber(Long policyNumber) {
 		this.policyNumber = policyNumber;
 	}
 	public boolean isPolicyStatus() {
@@ -27,19 +28,18 @@ public class Pacient extends Person{
 	public void setPolicyStatus(boolean policyStatus) {
 		this.policyStatus = policyStatus;
 	}
+	
 	public String getPolicyValidity() {
 		return policyValidity;
 	}
 	public void setPolicyValidity(String policyValidity) {
 		this.policyValidity = policyValidity;
 	}
-	public String getGender() {
-		return gender;
+	public String getPolicyTermination() {
+		return policyTermination;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setPolicyTermination(String policyTermination) {
+		this.policyTermination = policyTermination;
 	}
-	
-	
 
 }
