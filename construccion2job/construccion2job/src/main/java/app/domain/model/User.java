@@ -7,6 +7,8 @@ public class User extends Person{
 	private Role rol;
 	private String userName;
 	private String password;
+	private String gender;
+	
 	public Role getRol() {
 		return rol;
 	}
@@ -24,6 +26,12 @@ public class User extends Person{
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	
 
