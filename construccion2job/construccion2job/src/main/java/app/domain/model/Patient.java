@@ -2,7 +2,7 @@ package app.domain.model;
 
 public class Patient {
 	private Long patientID;
-	private Long idNumber;
+	private Long patientIdCard;
 	private String completeName;
 	private String birthDate;
 	private String gender;
@@ -17,12 +17,7 @@ public class Patient {
 	public void setPatientID(Long patientID) {
 		this.patientID = patientID;
 	}
-	public Long getIdNumber() {
-		return idNumber;
-	}
-	public void setIdNumber(Long idNumber) {
-		this.idNumber = idNumber;
-	}
+	
 	public String getCompleteName() {
 		return completeName;
 	}
@@ -58,6 +53,12 @@ public class Patient {
 	}
 	public void setEmailAdress(String emailAdress) {
 		this.emailAdress = emailAdress;
+	}
+	public Long getPatientIdCard() {
+		return patientIdCard;
+	}
+	public void setPatientIdCard(Long patientIdCard) {
+		this.patientIdCard = patientIdCard;
 	}
 	
 	
