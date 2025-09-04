@@ -9,6 +9,8 @@ public class Invoice {
 	private MedicalInsurance policyValidity;
 	
 
+	
+
 	public User getDoctor() {
 		return doctor;
 	}

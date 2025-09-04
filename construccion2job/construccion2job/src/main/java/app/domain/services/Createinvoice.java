@@ -3,9 +3,9 @@ package app.domain.services;
 import app.domain.model.Patient;
 import app.domain.model.Invoice;
 import app.domain.model.MedicalOrder;
-import app.domain.model.PatientPort;
-import app.domain.model.InvoicePort;
-import app.domain.model.MedicalOrderPort;
+import app.domain.ports.PatientPort;
+import app.domain.ports.InvoicePort;
+import app.domain.ports.MedicalOrderPort;
 
 public class Createinvoice {
     private PatientPort patientPort;
