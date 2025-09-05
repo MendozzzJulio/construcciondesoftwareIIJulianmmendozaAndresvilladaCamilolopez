@@ -2,35 +2,49 @@ package app.domain.model;
 
 public class Medication {
 	
-	private int orderNumber;
-	private Long idOfTheMedicine;
-	private float dose;
-	private int item;
+	private String medicineName;
+	private long medicineID;
+	private float medicineCost;
+	private int dose;
+	private long item;
 	
-	public int getOrderNumber() {
-		return orderNumber;
+	// Como que duracion del tratamiento?
+	
+	
+	public String getMedicineName() {
+		return medicineName;
 	}
-	public void setOrderNumber(int orderNumber) {
-		this.orderNumber = orderNumber;
+	public void setMedicineName(String medicineName) {
+		this.medicineName = medicineName;
 	}
-	public Long getIdOfTheMedicine() {
-		return idOfTheMedicine;
+	public long getMedicineID() {
+		return medicineID;
 	}
-	public void setIdOfTheMedicine(Long idOfTheMedicine) {
-		this.idOfTheMedicine = idOfTheMedicine;
+	public void setMedicineID(long medicineID) {
+		this.medicineID = medicineID;
 	}
-	public float getDose() {
+	public float getMedicineCost() {
+		return medicineCost;
+	}
+	public void setMedicineCost(float medicineCost) {
+		this.medicineCost = medicineCost;
+	}
+	public int getDose() {
 		return dose;
 	}
-	public void setDose(float dose) {
+	public void setDose(int dose) {
 		this.dose = dose;
 	}
-	public int getItem() {
+	public long getItem() {
 		return item;
 	}
-	public void setItem(int item) {
+	public void setItem(long item) {
 		this.item = item;
 	}
+	
+
+	
+	
 	
 	
 

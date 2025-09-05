@@ -1,6 +1,6 @@
 package app.domain.model;
 
-public class DiagnosticHelp {
+public class DiagnosticAid {
 	private Long id;
     private String name;
     private String description;
