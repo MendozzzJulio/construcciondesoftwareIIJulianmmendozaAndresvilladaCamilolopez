@@ -19,17 +19,17 @@ public class Createinvoice {
     }
 
     public Invoice createInvoice(String tinNumber, String patientId, String medicalOrderId) {
-        Patient patient = patientPort.getPatientById(patientId);
+        Patient patient = patientPort.findPatientById(patientId);
         if (patient == null) {
             throw new IllegalArgumentException("Patient not found");
         }
 
-        MedicalOrder medicalOrder = medicalOrderPort.getMedicalOrderById(medicalOrderId);
+        MedicalOrder medicalOrder = medicalOrderPort.findMedicalOrderById(medicalOrder);
         if (medicalOrder == null) {
             throw new IllegalArgumentException("Medical Order not found");
         }
 
-        Invoice invoice = new Invoice(tinNumber, patient, medicalOrder);
+        Invoice invoice = new Invoice(String tinNumber, String patientId, String medicalOrderId);
         invoicePort.saveInvoice(invoice);
         return invoice;
     }

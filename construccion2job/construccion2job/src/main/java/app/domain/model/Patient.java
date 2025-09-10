@@ -1,7 +1,7 @@
 package app.domain.model;
 
 public class Patient {
-	private Long patientID;
+	
 	private Long patientIdCard;
 	private String completeName;
 	private String birthDate;
@@ -11,13 +11,7 @@ public class Patient {
 	private String emailAdress;
 	
 	
-	public Long getPatientID() {
-		return patientID;
-	}
-	public void setPatientID(Long patientID) {
-		this.patientID = patientID;
-	}
-	
+
 	public String getCompleteName() {
 		return completeName;
 	}
