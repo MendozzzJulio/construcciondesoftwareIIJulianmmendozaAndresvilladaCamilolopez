@@ -9,7 +9,9 @@ import app.domain.ports.MedicalOrderPort;
 
 public class Createinvoice {
     private PatientPort patientPort;
+    
     private InvoicePort invoicePort;
+    
     private MedicalOrderPort medicalOrderPort;
 
     public Createinvoice(PatientPort patientPort, InvoicePort invoicePort, MedicalOrderPort medicalOrderPort) {
@@ -29,7 +31,7 @@ public class Createinvoice {
             throw new IllegalArgumentException("Medical Order not found");
         }
 
-        Invoice invoice = new Invoice(tinNumber, patient, medicalOrder);
+        Invoice invoice = new Invoice();
         invoicePort.saveInvoice(invoice);
         return invoice;
     }

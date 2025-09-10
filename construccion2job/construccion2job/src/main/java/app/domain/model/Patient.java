@@ -60,6 +60,10 @@ public class Patient {
 	public void setPatientIdCard(Long patientIdCard) {
 		this.patientIdCard = patientIdCard;
 	}
+	public MedicalInsurance getMedicalInsurance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
