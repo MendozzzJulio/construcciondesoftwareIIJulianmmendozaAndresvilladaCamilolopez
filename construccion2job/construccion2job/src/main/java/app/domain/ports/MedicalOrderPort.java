@@ -1,14 +1,16 @@
 package app.domain.ports;
 
-import java.util.List;
-
 import app.domain.model.MedicalOrder;
-import app.domain.model.Patient;
 
 public interface MedicalOrderPort {
+/*
 	public MedicalOrder findMedicalOrderById(MedicalOrder  medicalOrder) throws Exception;
 	public List<MedicalOrder> findByPet(Patient patient)throws Exception;
 	public void save(MedicalOrder medicalOrder) throws Exception;
+*/
+	
+	MedicalOrder getMedicalOrderById(String medicalOrderId);
+
 
 	
 	
