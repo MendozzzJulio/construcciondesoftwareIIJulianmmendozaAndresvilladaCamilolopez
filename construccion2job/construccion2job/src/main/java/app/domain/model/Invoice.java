@@ -4,9 +4,7 @@ public class Invoice {
 	private long invoiceID;
 	private Patient patient;
 	private User doctor;
-	private MedicalInsurance insuranceCompanyName;
-	private MedicalInsurance policyNumber;
-	private MedicalInsurance policyValidity;
+	private MedicalInsurance medicalInsurance;
 	
 	public long getInvoiceID() {
 		return invoiceID;
@@ -28,35 +26,11 @@ public class Invoice {
 	public void setDoctor(User doctor) {
 		this.doctor = doctor;
 	}
-	public MedicalInsurance getInsuranceCompanyName() {
-		return insuranceCompanyName;
+	public MedicalInsurance getMedicalInsurance() {
+		return medicalInsurance;
 	}
-	public void setInsuranceCompanyName(MedicalInsurance insuranceCompanyName) {
-		this.insuranceCompanyName = insuranceCompanyName;
-	}
-	public MedicalInsurance getPolicyNumber() {
-		return policyNumber;
-	}
-	public void setPolicyNumber(MedicalInsurance policyNumber) {
-		this.policyNumber = policyNumber;
-	}
-	public MedicalInsurance getPolicyValidity() {
-		return policyValidity;
-	}
-	public void setPolicyValidity(MedicalInsurance policyValidity) {
-		this.policyValidity = policyValidity;
-	}
-	public void setMedicalOrder(MedicalOrder medicalOrder) {
-		// TODO Auto-generated method stub
-		
-	}
-	public boolean isMedicine() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	public String getMedicalOrderId() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setMedicalInsurance(MedicalInsurance medicalInsurance) {
+		this.medicalInsurance = medicalInsurance;
 	}
 	
 
