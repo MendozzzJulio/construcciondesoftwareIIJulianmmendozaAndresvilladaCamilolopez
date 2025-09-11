@@ -23,7 +23,7 @@ public class Createinvoice {
 		}
 		if (invoice.isMedicine()) { 
 			MedicalOrder medicalOrder = medicalOrderPort.findById(invoice.getOrderNumber());
-			if (medicalOrder == null || patient.getId() != medicalOrder.getPatientIdCard().getId()) {
+			if (medicalOrder == null || patient.getId() != medicalOrder.getPatientIdCard().getPatientIdCard()) {
 				throw new Exception("La venta de un medicamento requiere de una orden medica asociada");
 			}
 			invoice.setOrderNumber(medicalOrder);
