@@ -8,7 +8,7 @@ import app.domain.ports.InvoicePort;
 import app.domain.ports.MedicalOrderPort;
 import app.domain.ports.PatientPort;
 import app.domain.ports.UserPort;
-s
+
 public class Createinvoice {
 	
 	private PatientPort patientPort;
@@ -23,11 +23,12 @@ public class Createinvoice {
 		if (patient == null) {
 
 			throw new Exception("La factura debe de estar asociada a un paciente");
-
-			throw new Exception("La factura debe de estar asociada a un paciente");}
-		if(user == null) {
+			}
+		
+		
+		if(doctor == null) {
             throw new Exception("La factura debe de estar asociada a un doctor");
-
+		
 		}
 		if (invoice.isMedicine()) { 
 			MedicalOrder medicalOrder = medicalOrderPort.findById(invoice.getOrderNumber());
