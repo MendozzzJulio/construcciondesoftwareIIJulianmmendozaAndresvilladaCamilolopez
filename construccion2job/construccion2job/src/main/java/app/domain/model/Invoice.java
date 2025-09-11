@@ -1,10 +1,12 @@
 package app.domain.model;
 
 public class Invoice {
+	private MedicalOrder orderNumber;
 	private long invoiceID;
 	private Patient patient;
 	private User doctor;
 	private MedicalInsurance medicalInsurance;
+	private boolean medicine;
 	
 	public long getInvoiceID() {
 		return invoiceID;
@@ -31,6 +33,18 @@ public class Invoice {
 	}
 	public void setMedicalInsurance(MedicalInsurance medicalInsurance) {
 		this.medicalInsurance = medicalInsurance;
+	}
+	public MedicalOrder getOrderNumber() {
+		return orderNumber;
+	}
+	public void setOrderNumber(MedicalOrder orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+	public boolean isMedicine() {
+		return medicine;
+	}
+	public void setMedicine(boolean medicine) {
+		this.medicine = medicine;
 	}
 	
 
