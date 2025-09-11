@@ -21,7 +21,13 @@ public class Createinvoice {
         Patient patient = patientPort.findById(invoice.getPatient());
         User doctor = userPort.findById(invoice.getDoctor());
 		if (patient == null) {
+
 			throw new Exception("La factura debe de estar asociada a un paciente");
+
+			throw new Exception("La factura debe de estar asociada a un paciente");}
+		if(user == null) {
+            throw new Exception("La factura debe de estar asociada a un doctor");
+
 		}
 		if (invoice.isMedicine()) { 
 			MedicalOrder medicalOrder = medicalOrderPort.findById(invoice.getOrderNumber());
