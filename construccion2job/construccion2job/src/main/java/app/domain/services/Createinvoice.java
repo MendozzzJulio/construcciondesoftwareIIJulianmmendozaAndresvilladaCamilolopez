@@ -8,7 +8,7 @@ import app.domain.ports.InvoicePort;
 import app.domain.ports.MedicalOrderPort;
 import app.domain.ports.PatientPort;
 import app.domain.ports.UserPort;
-
+s
 public class Createinvoice {
 	
 	private PatientPort patientPort;
