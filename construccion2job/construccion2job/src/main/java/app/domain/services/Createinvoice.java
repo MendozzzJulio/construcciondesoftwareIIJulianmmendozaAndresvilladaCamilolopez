@@ -11,7 +11,7 @@ import app.domain.ports.UserPort;
 public class Createinvoice {
 	
 	private PatientPort patientPort;
-	private UserPort userport;
+	private UserPort userPort;
 	private MedicalOrderPort medicalOrderPort;
 	private InvoicePort invoicePort;
 	
@@ -23,7 +23,7 @@ public class Createinvoice {
 		}
 		if (invoice.isMedicine()) { 
 			MedicalOrder medicalOrder = medicalOrderPort.findById(invoice.getOrderNumber());
-			if (medicalOrder == null || patient.getId() != medicalOrder.getPatient().getId()) {
+			if (medicalOrder == null || patient.getId() != medicalOrder.getPatientIdCard().getId()) {
 				throw new Exception("La venta de un medicamento requiere de una orden medica asociada");
 			}
 			invoice.setOrderNumber(medicalOrder);

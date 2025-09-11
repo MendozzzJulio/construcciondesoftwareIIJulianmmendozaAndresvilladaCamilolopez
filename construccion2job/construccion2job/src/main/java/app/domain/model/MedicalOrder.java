@@ -6,7 +6,7 @@ public class MedicalOrder {
 	
 
 		private int orderNumber;
-	    private String patientIdCard;
+	    private Patient patientIdCard;
 	    private String doctorIdCard;
 	    private String creationDate;
 	    private String typeOrder;
@@ -22,10 +22,10 @@ public class MedicalOrder {
 		public void setOrderNumber(int orderNumber) {
 			this.orderNumber = orderNumber;
 		}
-		public String getPatientIdCard() {
+		public Patient getPatientIdCard() {
 			return patientIdCard;
 		}
-		public void setPatientIdCard(String patientIdCard) {
+		public void setPatientIdCard(Patient patientIdCard) {
 			this.patientIdCard = patientIdCard;
 		}
 		public String getDoctorIdCard() {
@@ -58,6 +58,7 @@ public class MedicalOrder {
 		public void setItems(List<Item> items) {
 			this.items = items;
 		}
+	
 
 	
 
