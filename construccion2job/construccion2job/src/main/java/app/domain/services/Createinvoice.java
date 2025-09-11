@@ -19,10 +19,9 @@ public class Createinvoice {
 	
 	public void createInvoice(Invoice invoice) throws Exception {
         Patient patient = patientPort.findById(invoice.getPatient());
-        User user = userPort.findById(invoice.getDoctor());
+        User doctor = userPort.findById(invoice.getDoctor());
 		if (patient == null) {
 			throw new Exception("La factura debe de estar asociada a un paciente");
-		
 		}
 		if (invoice.isMedicine()) { 
 			MedicalOrder medicalOrder = medicalOrderPort.findById(invoice.getOrderNumber());
@@ -34,6 +33,7 @@ public class Createinvoice {
 		invoice.setPatient(patient);
 		invoicePort.save(invoice);
            
-	}
+		}
 
 }
+
