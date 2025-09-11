@@ -1,6 +1,7 @@
 package app.domain.services;
 
 import app.domain.model.Invoice;
+import app.domain.model.MedicalOrder;
 import app.domain.model.Patient;
 import app.domain.ports.InvoicePort;
 import app.domain.ports.MedicalOrderPort;
@@ -21,9 +22,14 @@ public class Createinvoice {
 			throw new Exception("La factura debe de estar asociada a un paciente");
 		}
 		if (invoice.isMedicine()) { 
-			MedicalOrder medicalOrder = medicalOrderPort.findById(invoice.getorderNumber());
-        
+			MedicalOrder medicalOrder = medicalOrderPort.findById(invoice.getOrderNumber());
+			if (medicalOrder == null || patient.getId() != medicalOrder.getPatient().getId()) {
+				throw new Exception("La venta de un medicamento requiere de una orden medica asociada");
+			}
+			invoice.setOrderNumber(medicalOrder);
 		}
+		invoice.setPatient(patient);
+		invoicePort.save(invoice);
            
 	}
 

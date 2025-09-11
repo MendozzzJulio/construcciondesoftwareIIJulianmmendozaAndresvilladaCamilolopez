@@ -4,9 +4,10 @@ import app.domain.model.MedicalOrder;
 
 public interface MedicalOrderPort {
 
-	MedicalOrder findrById(String medicalOrderId);
+	MedicalOrder findById(MedicalOrder medicalOrder);
 
 
 	
 	
 }
+ 
