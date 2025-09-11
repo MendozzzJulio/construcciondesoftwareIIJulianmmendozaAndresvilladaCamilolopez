@@ -3,6 +3,7 @@ package app.domain.services;
 import app.domain.model.Invoice;
 import app.domain.model.MedicalOrder;
 import app.domain.model.Patient;
+import app.domain.model.User;
 import app.domain.ports.InvoicePort;
 import app.domain.ports.MedicalOrderPort;
 import app.domain.ports.PatientPort;
@@ -18,8 +19,10 @@ public class Createinvoice {
 	
 	public void createInvoice(Invoice invoice) throws Exception {
         Patient patient = patientPort.findById(invoice.getPatient());
+        User user = userPort.findById(invoice.getDoctor());
 		if (patient == null) {
 			throw new Exception("La factura debe de estar asociada a un paciente");
+		
 		}
 		if (invoice.isMedicine()) { 
 			MedicalOrder medicalOrder = medicalOrderPort.findById(invoice.getOrderNumber());
