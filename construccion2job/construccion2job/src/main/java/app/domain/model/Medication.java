@@ -2,20 +2,17 @@ package app.domain.model;
 
 public class Medication {
 	
-	private String medicineName;
+	private MedicalOrder medicalOrder;
 	private long medicineID;
-	private float medicineCost;
-	private int dose;
-	private long item;
-	
-	// Como que duracion del tratamiento?
+	private float dose;
+	private Item itemId;
 	
 	
-	public String getMedicineName() {
-		return medicineName;
+	public MedicalOrder getMedicalOrder() {
+		return medicalOrder;
 	}
-	public void setMedicineName(String medicineName) {
-		this.medicineName = medicineName;
+	public void setMedicalOrder(MedicalOrder medicalOrder) {
+		this.medicalOrder = medicalOrder;
 	}
 	public long getMedicineID() {
 		return medicineID;
@@ -23,24 +20,22 @@ public class Medication {
 	public void setMedicineID(long medicineID) {
 		this.medicineID = medicineID;
 	}
-	public float getMedicineCost() {
-		return medicineCost;
-	}
-	public void setMedicineCost(float medicineCost) {
-		this.medicineCost = medicineCost;
-	}
-	public int getDose() {
+	public float getDose() {
 		return dose;
 	}
-	public void setDose(int dose) {
+	public void setDose(float dose) {
 		this.dose = dose;
 	}
-	public long getItem() {
-		return item;
+	public Item getItemId() {
+		return itemId;
 	}
-	public void setItem(long item) {
-		this.item = item;
+	public void setItemId(Item itemId) {
+		this.itemId = itemId;
 	}
+	
+
+	
+	
 	
 
 	
