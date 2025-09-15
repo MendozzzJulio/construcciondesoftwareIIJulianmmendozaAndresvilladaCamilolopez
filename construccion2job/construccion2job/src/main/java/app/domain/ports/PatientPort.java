@@ -5,14 +5,12 @@ import app.domain.model.Patient;
 public interface PatientPort {
 	
 
+	public Patient findById(Patient patient) throws Exception;
 
-	
-
-	public Patient findById(Patient patient);
-
+	public void save(Patient patient);
 
 
-	
+
 }
 
 
