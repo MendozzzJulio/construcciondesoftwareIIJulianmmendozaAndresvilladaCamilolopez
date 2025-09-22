@@ -48,9 +48,11 @@ public class Patient {
 	public void setEmailAdress(String emailAdress) {
 		this.emailAdress = emailAdress;
 	}
+
 	public Long getPatientIdCard() {
 		return patientIdCard;
 	}
+
 	public void setPatientIdCard(Long patientIdCard) {
 		this.patientIdCard = patientIdCard;
 	}

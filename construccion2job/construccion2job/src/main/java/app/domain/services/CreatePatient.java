@@ -10,7 +10,7 @@ public class CreatePatient {
 	public void create(Patient patient) throws Exception {
 		
 		if (patientPort == null) {
-			throw new Exception("El paciente no puede ser nulo");
+			throw new Exception("El paciente no puede estar vacio");
 		}
 	
 	    patientPort.save(patient);}
