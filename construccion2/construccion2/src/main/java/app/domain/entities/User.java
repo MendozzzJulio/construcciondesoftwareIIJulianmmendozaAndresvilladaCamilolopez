@@ -3,6 +3,7 @@ package app.domain.entities;
 import app.domain.entities.enums.Role;
 
 public class User extends Person{
+	
 	private String username;
 	private String password;
 	private Role role;
