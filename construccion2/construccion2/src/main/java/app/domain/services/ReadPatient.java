@@ -1,25 +1,16 @@
 package app.domain.services;
 
-
 import app.domain.entities.Patient;
 import app.domain.ports.PatientsPort;                        //seguImos el esquema CRUD (CREATE,READ,UPDATE,DELETE)
 
-public class CreatePatient {
-	
+
+public class ReadPatient {
 	private final PatientsPort patientsPort;
 	
-	public CreatePatient(PatientsPort patientsPort) {
+	public ReadPatient(PatientsPort patientsPort) {
 		this.patientsPort = patientsPort;
 	}
-	
-	//vamos a crear el nuevo (enfermo) paciente 
-	public void createPatient(Patient patient) throws Exception {
-        if (patientsPort.findById(patient.getId()) != null) {
-            throw new Exception(" A Patient with THIS ID  already exists.");
-        }
-        patientsPort.save(patient);
-	}
-      // buscar paciente por id
+	 // buscar paciente por id
 	  public Patient getPatient(Patient patient) throws Exception {
 	        Patient found = patientsPort.findById(patient.getId());
 	        if (found == null) {
@@ -27,5 +18,4 @@ public class CreatePatient {
 	        }
 	        return found;
 	    }
-	   
 }

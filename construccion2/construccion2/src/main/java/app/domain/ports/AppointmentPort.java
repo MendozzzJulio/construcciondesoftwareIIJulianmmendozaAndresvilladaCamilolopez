@@ -22,11 +22,11 @@ public interface AppointmentPort {
 	/**
 	 * Obtendremos todas las citas que estan asociadas a un paciente en especifico.
 	 */
-	List<Appointment> findByPatient(String patientId) throws Exception;
+	public List<Appointment> findByPatient(long patientId) throws Exception;
 	/**
 	 * Obtendremos todas las citas que estan asociadas a un doctor en especifico.
 	 */
-	List<Appointment> findByDoctor(String doctorId) throws Exception;
+	public List<Appointment> findByDoctor(long doctorId) throws Exception;
 	
 
 }
