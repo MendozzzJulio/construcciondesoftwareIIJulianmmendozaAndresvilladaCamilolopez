@@ -1,13 +1,14 @@
-package app.domain.valueobjects;
+package app.domain.entities.valueobjects;
 
-public class MedicalInsurance {
+public class PhoneNumber {
 	private final String value;
 
-	public MedicalInsurance(String value) {
+	public PhoneNumber(String value) {
 		this.value = value;
 	}
 
 	public String getValue() {
 		return value;
 	}
+
 }

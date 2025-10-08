@@ -1,9 +1,9 @@
-package app.domain.valueobjects;
+package app.domain.entities.valueobjects;
 
-public class PhoneNumber {
+public class Email {
 	private final String value;
 
-	public PhoneNumber(String value) {
+	public Email(String value) {
 		this.value = value;
 	}
 

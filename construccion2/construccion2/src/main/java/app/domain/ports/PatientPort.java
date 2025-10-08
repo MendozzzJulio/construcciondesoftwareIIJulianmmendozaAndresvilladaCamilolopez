@@ -4,7 +4,7 @@ import app.domain.entities.Patient;
 
 
 
-public interface PatientsPort {
+public interface PatientPort {
 	
     public void save(Patient patient) throws Exception;
 	/*

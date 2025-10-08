@@ -2,13 +2,13 @@ package app.domain.services;
 
 
 import app.domain.entities.Patient;
-import app.domain.ports.PatientsPort;
+import app.domain.ports.PatientPort;
 
 public class PatientService {
 	
-	private final PatientsPort patientsPort;
+	private final PatientPort patientsPort;
 	
-	public PatientService(PatientsPort patientsPort) {
+	public PatientService(PatientPort patientsPort) {
 		this.patientsPort = patientsPort;
 	}
 	
