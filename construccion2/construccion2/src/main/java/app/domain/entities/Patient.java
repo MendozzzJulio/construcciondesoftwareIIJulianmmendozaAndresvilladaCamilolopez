@@ -1,7 +1,7 @@
 package app.domain.entities;
 
-import app.domain.valueobjects.EmergencyContact;
-import app.domain.valueobjects.MedicalInsurance;
+import app.domain.entities.valueobjects.EmergencyContact;
+import app.domain.entities.valueobjects.MedicalInsurance;
 
 public class Patient extends Person {
 	

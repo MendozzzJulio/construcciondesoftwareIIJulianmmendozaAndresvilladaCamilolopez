@@ -1,13 +1,13 @@
 package app.application.usecases;
 
 import app.domain.entities.Patient;
-import app.domain.ports.PatientsPort;
+import app.domain.ports.PatientPort;
 
 public class PatientRegisterUseCase {
 	
-	private final PatientsPort patientsPort;
+	private final PatientPort patientsPort;
 	
-	public PatientRegisterUseCase(PatientsPort patientsPort) {
+	public PatientRegisterUseCase(PatientPort patientsPort) {
 		this.patientsPort = patientsPort;
 	}
 	

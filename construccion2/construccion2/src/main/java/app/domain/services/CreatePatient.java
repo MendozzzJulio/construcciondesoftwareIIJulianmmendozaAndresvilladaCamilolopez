@@ -2,16 +2,18 @@ package app.domain.services;
 
 
 import app.domain.entities.Patient;
+
 import app.domain.ports.PatientsPort;                        //seguImos el esquema CRUD (CREATE,READ,UPDATE,DELETE)
+
+import app.domain.ports.PatientPort;
 
 public class CreatePatient {
 	
-	private final PatientsPort patientsPort;
+	private final PatientPort patientsPort;
 	
-	public CreatePatient(PatientsPort patientsPort) {
-		this.patientsPort = patientsPort;
-	}
-	
+
+	public Create(PatientsPort patientsPort) {
+
 	//vamos a crear el nuevo (enfermo) paciente 
 	public void createPatient(Patient patient) throws Exception {
         if (patientsPort.findById(patient.getId()) != null) {

@@ -1,9 +1,10 @@
-package app.domain.valueobjects;
+package app.domain.entities.valueobjects;
 
-public class EmergencyContact {
+public class Address {
+
 	private final String value;
 
-	public EmergencyContact(String value) {
+	public Address(String value) {
 		this.value = value;
 	}
 

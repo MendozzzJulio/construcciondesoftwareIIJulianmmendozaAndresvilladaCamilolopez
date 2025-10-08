@@ -2,9 +2,9 @@ package app.domain.entities;
 
 import java.time.LocalDate;
 
-import app.domain.valueobjects.Address;
-import app.domain.valueobjects.Email;
-import app.domain.valueobjects.PhoneNumber;
+import app.domain.entities.valueobjects.Address;
+import app.domain.entities.valueobjects.Email;
+import app.domain.entities.valueobjects.PhoneNumber;
 
 public abstract class Person {
 	
