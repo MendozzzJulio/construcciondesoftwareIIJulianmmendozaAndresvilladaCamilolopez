@@ -5,19 +5,16 @@ import app.domain.valueobjects.MedicalInsurance;
 
 public class Patient extends Person {
 	
-	private long id; // Identificador unico para cada paciente 
-	private EmergencyContact emergencyContact;
-	private MedicalInsurance medicalInsurance;
+	private long id; // Identificador unico para cada paciente que es diferente a la cedula
+	
+	  //aca estan los atributos que se extraen de person 
+	
+	private EmergencyContact emergencyContact; //MAXIMO 1 
+	private MedicalInsurance medicalInsurance; //MAXIMO 1
 	
 	
+	public Patient() {}
 	
-	
-	
-	
-	
-	public Patient(long l23L, String Carlos, String Sura, String pipi) {
-		// TODO Auto-generated constructor stub
-	}
 	public EmergencyContact getEmergencyContact() {
 		return emergencyContact;
 	}
