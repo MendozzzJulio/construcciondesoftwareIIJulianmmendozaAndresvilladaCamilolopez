@@ -16,12 +16,12 @@ import app.domain.ports.PatientPort;
 @Service // Marca la clase como un servicio de negocio.
 public class CreateMedicalOrder {
 	
-	@Autowired
+	@Autowired  // Inyecta la dependencia del puerto de usuario. Asi mismo con los diferentes puertos.
 	private UserPort userPort;
 	@Autowired
 	private PatientPort patientPort;
 	@Autowired
-	private MedicalOrderPort medicalOrder;
+	private MedicalOrderPort medicalOrderPort;
 	
 	public void Create(MedicalOrder medicalOrder) throws Exception{
 		User doctor = userPort.findByDocument(medicalOrder.getDoctor());
@@ -38,6 +38,7 @@ public class CreateMedicalOrder {
         medicalOrder.setDate(new Date(System.currentTimeMillis()));
         medicalOrder.setPatient(patient);
         medicalOrder.setDoctor(doctor);
+        
         medicalOrderPort.save(medicalOrder);
 	}
 }
