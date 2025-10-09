@@ -21,6 +21,8 @@ public class CreatePatient {  //seguImos el esquema CRUD (CREATE,READ,UPDATE,DEL
 	
 	//vamos a crear el nuevo (enfermo) paciente 
 	public void create(Patient patient) throws Exception {
+		
+		
 		// Validamos que quien crea el paciente sea un administrativo
 		User administrative = userPort.findById(patient.getAdministrative());
 		if (administrative == null || !administrative.getRole().equals(Role.ADMINISTRATIVE)){

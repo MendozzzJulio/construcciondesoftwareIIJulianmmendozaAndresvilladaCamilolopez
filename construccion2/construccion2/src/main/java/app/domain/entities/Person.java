@@ -8,9 +8,10 @@ import app.domain.entities.valueobjects.PhoneNumber;
 
 public abstract class Person {
 	
-	private long documentID; // Cedula de ciudadania
+	private long id;
+	private long document; // Cedula de ciudadania
 	private String name;
-	private String lastName;
+	private String lastName; 
 	private Email email;
 	private Address address;
 	private PhoneNumber phoneNumber;
@@ -18,12 +19,6 @@ public abstract class Person {
 	
 	
 	
-	public long getDocumentID() {
-		return documentID;
-	}
-	public void setDocumentID(long documentID) {
-		this.documentID = documentID;
-	}
 	public String getName() {
 		return name;
 	}
@@ -59,6 +54,18 @@ public abstract class Person {
 	}
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
+	}
+	public long getDocument() {
+		return document;
+	}
+	public void setDocument(long document) {
+		this.document = document;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	

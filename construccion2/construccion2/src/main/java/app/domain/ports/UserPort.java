@@ -6,9 +6,9 @@ import app.domain.entities.User;
 
 public interface UserPort {
 	
-	public User findByDocument(User user) throws Exception;
 	public User findById(User user) throws Exception;
-	public User findByUsername(User user);
+	public User findByDocument(User user) throws Exception;
+	public User findByUsername(User user) throws Exception;
 	public void save(User user) throws Exception;
 
 

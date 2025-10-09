@@ -5,7 +5,7 @@ import app.domain.entities.valueobjects.MedicalInsurance;
 
 public class Patient extends Person {
 	
-	private long id; // Identificador unico para cada paciente que es diferente a la cedula
+	
 	
 	  //aca estan los atributos que se extraen de person 
 	
@@ -13,8 +13,7 @@ public class Patient extends Person {
 	private MedicalInsurance medicalInsurance; //MAXIMO 1
 	private User Administrative; // MAXIMO 1
 	
-	
-	public Patient() {}
+
 	
 	public EmergencyContact getEmergencyContact() {
 		return emergencyContact;
@@ -28,17 +27,9 @@ public class Patient extends Person {
 	public void setMedicalInsurance(MedicalInsurance medicalInsurance) {
 		this.medicalInsurance = medicalInsurance;
 	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public User getAdministrative() {
 		return Administrative;
 	}
-
 	public void setAdministrative(User administrative) {
 		Administrative = administrative;
 	}
