@@ -11,7 +11,7 @@ public class Patient extends Person {
 	
 	private EmergencyContact emergencyContact; //MAXIMO 1 
 	private MedicalInsurance medicalInsurance; //MAXIMO 1
-	private User Administrative; // MAXIMO 1
+	private User doctor; // MAXIMO 1
 	
 
 	
@@ -27,13 +27,13 @@ public class Patient extends Person {
 	public void setMedicalInsurance(MedicalInsurance medicalInsurance) {
 		this.medicalInsurance = medicalInsurance;
 	}
-	public User getAdministrative() {
-		return Administrative;
-	}
-	public void setAdministrative(User administrative) {
-		Administrative = administrative;
+	public User getDoctor() {
+		return doctor;
 	}
 
+	public void setDoctor(User doctor) {
+		this.doctor = doctor;
+	}
 	
 	
 	
