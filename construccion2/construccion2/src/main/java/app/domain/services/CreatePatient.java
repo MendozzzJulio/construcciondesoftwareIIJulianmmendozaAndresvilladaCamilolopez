@@ -22,12 +22,12 @@ public class CreatePatient {  //seguImos el esquema CRUD (CREATE,READ,UPDATE,DEL
 	//vamos a crear el nuevo (enfermo) paciente 
 	public void create(Patient patient) throws Exception {
 		
-		
 		// Validamos que quien crea el paciente sea un administrativo
-		User administrative = userPort.findById(patient.getAdministrative());
-		if (administrative == null || !administrative.getRole().equals(Role.ADMINISTRATIVE)){
+		User doctor = userPort.findById(patient.getDoctor());
+		if (doctor == null || !doctor.getRole().equals(Role.DOCTOR)){
 			throw new Exception("Solo un usuario administrativo puede crear un paciente");
 		}
+		
 		// Validamos si el paciente ya existe en el sistema
 		if (patientPort.findById(patient) != null) {
             throw new Exception(" Ya existe un paciente con este ID");
