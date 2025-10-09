@@ -1,23 +1,27 @@
 package app.domain.services;
 
-import app.domain.entities.Patient;
-import app.domain.ports.PatientsPort;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import app.domain.entities.Patient;
+import app.domain.ports.PatientPort;
+
+
+@Service
 public class UpdatePatient {
 	
-	private final PatientsPort patientsPort;
+
+	@Autowired
+	private PatientPort patientPort;
 	
-	public UpdatePatient(PatientsPort patientsPort) {
-		this.patientsPort = patientsPort;
-	}
 	
 	// actualizar info del (enfermito) paciente 
     public void updatePatient(Patient patient) throws Exception {
-        Patient existing = patientsPort.findById(patient.getId());
+        Patient existing = patientPort.findById(patient);
         if (existing == null) {
             throw new Exception("Cannot update: patient does not exist");
         }
-        patientsPort.save(patient);
+        patientPort.save(patient);
     }
 
 }

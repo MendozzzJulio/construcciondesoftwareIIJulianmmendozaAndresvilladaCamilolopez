@@ -29,7 +29,7 @@ public class CreateMedicalOrder {
             throw new Exception("Las ordenes solo pueden ser creadas por un doctor");
         }
         
-        Patient patient = patientPort.findById(MedicalOrder.getPatient());
+        Patient patient = patientPort.findById(medicalOrder.getPatient());
         if (patient==null) {
         	throw new Exception("Las ordenes medicas deben de asociarse a un paciente");
         	

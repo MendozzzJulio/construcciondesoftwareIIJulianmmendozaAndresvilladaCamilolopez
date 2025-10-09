@@ -12,7 +12,7 @@ public interface PatientPort {
 	/*
 	 * Busca un paciente por su identificador unico (id)
 	 */
-	public Patient findById(Patient patinet) throws Exception;
+	public Patient findById(Patient patient) throws Exception;
 	
 	
 	/*
