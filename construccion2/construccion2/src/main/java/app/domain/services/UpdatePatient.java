@@ -16,11 +16,11 @@ public class UpdatePatient {
 	
 	
 	// actualizar info del (enfermito) paciente 
-    public void updatePatient(Patient patient) throws Exception {
-        Patient existing = patientPort.findById(patient);
-        if (existing == null) {
-            throw new Exception("Cannot update: patient does not exist");
+    public void update(Patient patient) throws Exception {
+        if(patientPort.findById(patient) == null) {
+            throw new Exception("El paciente que intenta actualizar no existe");
         }
+        
         patientPort.save(patient);
     }
 

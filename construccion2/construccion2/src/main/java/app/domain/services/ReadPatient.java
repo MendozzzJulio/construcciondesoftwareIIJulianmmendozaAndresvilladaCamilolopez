@@ -7,7 +7,7 @@ import app.domain.entities.Patient;
 import app.domain.ports.PatientPort;                        //seguImos el esquema CRUD (CREATE,READ,UPDATE,DELETE)
 
 @Service
-public class ReadPatient {
+public class ReadPatient {  // El read es el search 
 
 	
 	@Autowired
@@ -15,11 +15,10 @@ public class ReadPatient {
 	
 	
 	 // buscar paciente por id
-	  public Patient getPatient(Patient patient) throws Exception {
-	        Patient found = patientPort.findById(patient);
-	        if (found == null) {
-	            throw new Exception("Patient not found");
+	  public Patient read(Patient patient) throws Exception {
+	       if (patientPort.findById(patient) == null) {
+	            throw new Exception("No se ha encontrado ningun paciente con ese ID");
 	        }
-	        return found;
+	        return patient;
 	    }
 }
