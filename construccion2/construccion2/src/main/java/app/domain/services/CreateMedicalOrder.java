@@ -21,24 +21,24 @@ public class CreateMedicalOrder {
 	@Autowired
 	private PatientPort patientPort;
 	@Autowired
-	private MedicalOrderPort medicalOrderPort;
+	private MedicalOrderPort medicalOrderPort;	
 	
-	public void Create(MedicalOrder medicalOrder) throws Exception{
-		User doctor = userPort.findByDocument(medicalOrder.getDoctor());
+	public void create(MedicalOrder medicalOrder) throws Exception{  // Metodo de creación de una orden medica
+		User doctor = userPort.findById(medicalOrder.getDoctor());
         if (doctor == null || !doctor.getRole().equals(Role.DOCTOR)) {
             throw new Exception("Las ordenes solo pueden ser creadas por un doctor");
         }
         
         Patient patient = patientPort.findById(medicalOrder.getPatient());
         if (patient==null) {
-        	throw new Exception("Las ordenes medicas deben de asociarse a un paciente");
-        	
+        	throw new Exception("Las ordenes medicas deben de asociarse a un paciente");	
         }
         
         medicalOrder.setDate(new Date(System.currentTimeMillis()));
         medicalOrder.setPatient(patient);
         medicalOrder.setDoctor(doctor);
-        
         medicalOrderPort.save(medicalOrder);
 	}
+	
+	
 }

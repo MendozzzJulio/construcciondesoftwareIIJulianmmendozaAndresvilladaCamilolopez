@@ -5,7 +5,6 @@ import app.domain.entities.enums.Role;
 public class User extends Person{
 	
 	private long id;
-
 	private String username;
 	private String password;
 	private Role role;
@@ -36,7 +35,6 @@ public class User extends Person{
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	
 	
 	
 
