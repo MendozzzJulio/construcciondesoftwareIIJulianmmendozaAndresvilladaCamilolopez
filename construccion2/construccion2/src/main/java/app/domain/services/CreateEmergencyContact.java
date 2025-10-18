@@ -8,7 +8,7 @@ public class CreateEmergencyContact {
 	private EmergencyContactPort emergencyContactPort;
 	
 
-	public void create(EmergencyContact emergencyContact) throws Exception {
+	public void createEmergencyContac(EmergencyContact emergencyContact) throws Exception {
 		
 		/**
 		 * me toco crear el get de PhoneNUmber en la entidad decemergencyContact por que si no sale un error
@@ -19,9 +19,14 @@ public class CreateEmergencyContact {
 		if (emergencyContact.getPhoneNumber() == null ||emergencyContact.getPhoneNumber().length()> 10) {
 			throw new Exception("Phone number is required");
 		}
+			if (emergencyContact.getName() == null) {
+				throw new Exception("El nombre del contacto de emergencia no puede estar vacío.");	
+		}
+	
+	    emergencyContactPort.save(emergencyContact);
+    }
 
-		emergencyContactPort.save(emergencyContact);
-
-	}
 
 }
+
+

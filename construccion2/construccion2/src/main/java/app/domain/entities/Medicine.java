@@ -1,12 +1,17 @@
 package app.domain.entities;
 
+//* Clase de medicamentos recetados por un doctor a un paciente
+
+
 public class Medicine {
 	
+	private User Doctor;
 	private Long numberOrder;
 	private Long id;
+	private int item;
 	private float dosage;
 	private String durationTreatment;
-	/*item pero no sabemos como va */
+	
 	
 	
 	public Long getNumberOrder() {
@@ -32,6 +37,18 @@ public class Medicine {
 	}
 	public void setDurationTreatment(String durationTreatment) {
 		this.durationTreatment = durationTreatment;
+	}
+	public User getDoctor() {
+		return Doctor;
+	}
+	public void setDoctor(User doctor) {
+		Doctor = doctor;
+	}
+	public int getItem() {
+		return item;
+	}
+	public void setItem(int item) {
+		this.item = item;
 	}
 
 	

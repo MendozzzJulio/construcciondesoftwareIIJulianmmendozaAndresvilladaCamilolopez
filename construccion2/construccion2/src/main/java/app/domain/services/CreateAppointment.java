@@ -1,27 +1,28 @@
 package app.domain.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import app.domain.entities.Appointment;
 import app.domain.ports.AppointmentPort;
-
+@Service
 public class CreateAppointment {
-	
-	// dependencia con el puerto  de appointmentport
-	private final AppointmentPort appointmentPort;
-	
-	
-	// constructor con su inyeccion de dependencias(spring)
+	@Autowired
+	private AppointmentPort AppointmentPort;
 
-	public CreateAppointment(AppointmentPort appointmentPort) {
-		this.appointmentPort = appointmentPort;
-	}
-	// metodo para crear una nueva cita
-	public void createAppointment(Appointment appointment) throws Exception {
-	 // valido que no exista una cita con el mismo id
-        if (appointmentPort.findById(appointment.getAppointmentId()) != null) {
-            throw new Exception(" An appointment with THIS ID  already exists.");
+    public void createAppointment(Appointment appointment) throws Exception {
+        
+        if (!AppointmentPort.isDoctorAvailable(appointment.getDoctor(), appointment.getDate())) {
+            throw new Exception("El doctor ya tiene una cita agendada para esa fecha y hora.");
         }
-        // si no existe, se guarda la cita 
-        appointmentPort.save(appointment);
-	}
 
+        if (!AppointmentPort.isPatientAvailable(appointment.getPatient(), appointment.getDate())) {
+            throw new Exception("El paciente ya tiene una cita agendada para esa fecha y hora.");
+        }
+        AppointmentPort.save(appointment);
+    }
+
+
+		
+	
 }

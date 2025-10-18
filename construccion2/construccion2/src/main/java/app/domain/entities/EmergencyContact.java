@@ -2,24 +2,27 @@ package app.domain.entities;
 
 public class EmergencyContact{
 	
-	private Person person;
+	private String name;
+	private String lastName;
 	private String phoneNumber;
 	
-
-	public Person getPerson() {
-		return person;
+	public String getName() {
+		return name;
 	}
-
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setName(String name) {
+		this.name = name;
 	}
-
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
+	
 }

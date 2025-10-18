@@ -1,7 +1,6 @@
 package app.domain.ports;
 
 import app.domain.entities.Billing;
-import app.domain.entities.Patient;
 
 public interface BillingPort {
 	

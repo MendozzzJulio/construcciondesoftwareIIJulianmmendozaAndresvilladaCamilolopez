@@ -4,11 +4,65 @@ package app.domain.entities;
 
 public class Visit {
 	
-	private String bloodPressure;
-    private double temperature;
-    private int heartRate;
-    private int oxygenLevel;
-    private double weight;
-    private String notes;
+	 private String patientId;
+	 private String bloodPressure;
+	 private double temperature;
+	 private int pulse;
+	 private int oxygenLevel;
+	 private Medicine medicine;
+	 private Procedure procedure;
+	 private DiagnosticAid diagnosticAid;
+	 
+	 
+	 public String getPatientId() {
+		 return patientId;
+	 }
+	 public void setPatientId(String patientId) {
+		 this.patientId = patientId;
+	 }
+	 public String getBloodPressure() {
+		 return bloodPressure;
+	 }
+	 public void setBloodPressure(String bloodPressure) {
+		 this.bloodPressure = bloodPressure;
+	 }
+	 public double getTemperature() {
+		 return temperature;
+	 }
+	 public void setTemperature(double temperature) {
+		 this.temperature = temperature;
+	 }
+	 public int getPulse() {
+		 return pulse;
+	 }
+	 public void setPulse(int pulse) {
+		 this.pulse = pulse;
+	 }
+	 public int getOxygenLevel() {
+		 return oxygenLevel;
+	 }
+	 public void setOxygenLevel(int oxygenLevel) {
+		 this.oxygenLevel = oxygenLevel;
+	 }
+	 public Medicine getMedicine() {
+		 return medicine;
+	 }
+	 public void setMedicine(Medicine medicine) {
+		 this.medicine = medicine;
+	 }
+	 public Procedure getProcedure() {
+		 return procedure;
+	 }
+	 public void setProcedure(Procedure procedure) {
+		 this.procedure = procedure;
+	 }
+	 public DiagnosticAid getDiagnosticAid() {
+		 return diagnosticAid;
+	 }
+	 public void setDiagnosticAid(DiagnosticAid diagnosticAid) {
+		 this.diagnosticAid = diagnosticAid;
+	 }
+	 
+	 
 
 }

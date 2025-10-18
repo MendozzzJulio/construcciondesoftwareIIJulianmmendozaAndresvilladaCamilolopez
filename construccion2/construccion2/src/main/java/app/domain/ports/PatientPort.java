@@ -1,5 +1,7 @@
 package app.domain.ports;
 
+import java.util.List;
+
 import app.domain.entities.Patient;
 
 
@@ -28,6 +30,20 @@ public interface PatientPort {
 	 * guarda un paciente en el sistema 
 	 */
     public void save(Patient patient) throws Exception;
+
+
+	public Patient findByDocument(Patient patient);
+
+	/*
+	 * Actualiza la informacion de un paciente en el sistema
+	 */
+	public void updatePatient(Patient patient);
+
+
+	public List<Patient> findByPatient(Patient patient);
+
+
+
 	
 
 	

@@ -1,32 +1,102 @@
 package app.domain.entities;
 
-import app.domain.entities.valueobjects.EmergencyContact;
-import app.domain.entities.valueobjects.MedicalInsurance;
+import app.domain.entities.enums.Gender;
 
-public class Patient extends Person {
+public class Patient{
+	private  long id;
+	private  long document;
+	private  long phoneNumber;
+	private  String fullName;
+	private  String address;
+	private  String email;
+	private  String birthdate;
+	private  Gender gender;
+	private double weigth;
+	private double size;
+	private User doctor;
 	
 	
 	
-	  //aca estan los atributos que se extraen de person 
-	
-	private EmergencyContact emergencyContact; //MAXIMO 1 
-	private MedicalInsurance medicalInsurance; //MAXIMO 1
-	private User doctor; // MAXIMO 1
-	
+	public long getId() {
+		return id;
+	}
 
-	
-	public EmergencyContact getEmergencyContact() {
-		return emergencyContact;
+	public void setId(long id) {
+		this.id = id;
 	}
-	public void setEmergencyContact(EmergencyContact emergencyContact) {
-		this.emergencyContact = emergencyContact;
+
+	public long getDocument() {
+		return document;
 	}
-	public MedicalInsurance getMedicalInsurance() {
-		return medicalInsurance;
+
+	public void setDocument(long document) {
+		this.document = document;
 	}
-	public void setMedicalInsurance(MedicalInsurance medicalInsurance) {
-		this.medicalInsurance = medicalInsurance;
+
+	public long getPhoneNumber() {
+		return phoneNumber;
 	}
+
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	public double getWeigth() {
+		return weigth;
+	}
+
+	public void setWeigth(double weigth) {
+		this.weigth = weigth;
+	}
+
+	public double getSize() {
+		return size;
+	}
+
+	public void setSize(double size) {
+		this.size = size;
+	}
+
 	public User getDoctor() {
 		return doctor;
 	}
