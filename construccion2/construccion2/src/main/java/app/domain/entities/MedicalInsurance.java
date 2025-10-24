@@ -3,6 +3,7 @@ package app.domain.entities;
 import java.sql.Date;
 
 /**lo hace camilinPimguin
+ * 
  * Entidad que representa el seguro medico
  */
 
@@ -14,7 +15,6 @@ public class MedicalInsurance {
 	private boolean policyStatus; // estado de la poliza (activa o inactiva)
 	private Date policyValidity; //dias de vigencia de la poliza.
 	private Date policyEndDate; //fecha de finalizacion de la poliza
-	
 	
 	
 	public String getCompanyName() {
@@ -47,8 +47,6 @@ public class MedicalInsurance {
 	public void setPolicyEndDate(Date policyEndDate) {
 		this.policyEndDate = policyEndDate;
 	}
-	
-	
 	
 
 }

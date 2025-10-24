@@ -1,10 +1,16 @@
 package app.domain.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import app.domain.entities.Billing;
 import app.domain.ports.BillingPort;
 
+
+@Service
 public class CreateBilling {
 	
+	@Autowired
 	private BillingPort billingPort;
 	
 	public void createBilling(Billing billing) throws Exception {
@@ -13,11 +19,7 @@ public class CreateBilling {
 			throw new Exception("El paciente no existe");
 		}
 		
-		Billing existingBilling = billingPort.findbyDocument(billing);
-	
-		if (existingBilling != null) {
-			throw new Exception("Ya existe una factura con este documento");
-		}
+		
 
 		billingPort.save(billing);
 

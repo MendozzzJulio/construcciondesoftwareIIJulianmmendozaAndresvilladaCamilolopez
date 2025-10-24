@@ -6,35 +6,49 @@ import org.springframework.stereotype.Service;
 
 import app.domain.entities.Patient;
 import app.domain.entities.User;
-import app.domain.entities.enums.Role;                      
+import app.domain.entities.enums.Role;
 import app.domain.ports.UserPort;
 import app.domain.ports.PatientPort;
+import app.domain.entities.valueobjects.PhoneNumber;
 
-
-
+ // Servicio encargado de la creación de pacientes.
+ //Sigue el esquema CRUD (CREATE, READ, UPDATE, DELETE).
+ 
 @Service
-public class CreatePatient {  //seguImos el esquema CRUD (CREATE,READ,UPDATE,DELETE)
-	@Autowired
+public class CreatePatient {  
+	@Autowired  // Inyección de dependencias para acceder a los datos de usuarios y pacientes
 	private UserPort userPort;
 	@Autowired
 	private PatientPort patientPort;
-	
-	//vamos a crear el nuevo (enfermo) paciente 
-	public void create(Patient patient) throws Exception {
 		
-		// Validamos que quien crea el paciente sea un administrativo
-		User doctor = userPort.findById(patient.getDoctor());
-		if (doctor == null || !doctor.getRole().equals(Role.DOCTOR)){
-			throw new Exception("Solo un usuario administrativo puede crear un paciente");
+	public void createPatient(Patient patient, User creator) throws Exception {
+	
+		// Validamos que sea creado por un Medico	
+		if (userPort.findById(creator) == null || creator.getRole() != Role.DOCTOR) {
+			throw new Exception("Solo un doctor puede crear pacientes.");
 		}
 		
-		// Validamos si el paciente ya existe en el sistema
-		if (patientPort.findById(patient) != null) {
-            throw new Exception(" Ya existe un paciente con este ID");
-        }
-        patientPort.save(patient);		
-	}
+		// Validación: Verificamos si ya existe un enfermo  con el mismo documento
+		if(patientPort.findByDocument(patient)!=null) {
+			throw new Exception("Ya existe una persona con esa cedula");
+			}
+				
+		// Validar que el numero no sea nulo y que sea de exactamente 10 digitos
+		PhoneNumber phoneNumber = patient.getPhoneNumber();
+		if (phoneNumber == null || phoneNumber.toString().length() != 10) {
+			throw new Exception("El numero de telefono debe tener exactamente 10 digitos.");
+			}	
+		
+		// Validar que el numero no este repetido
+		if (patientPort.findByPhoneNumber(patient) != null) {
+			throw new Exception("Ya existe un paciente registrado con ese numero de contacto.");
+			}
+		
+		patientPort.save(patient); // Guardar el paciente en el sistema
+	}		
 }
 
+        
+      
 	   
 

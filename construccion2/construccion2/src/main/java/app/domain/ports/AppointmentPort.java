@@ -1,7 +1,11 @@
 package app.domain.ports;
 
 import app.domain.entities.Appointment;
-import java.util.List;
+import app.domain.entities.Patient;
+import app.domain.entities.User;
+
+import java.sql.Date;
+
 
 /**
  * Puerto de (interfaz) que definira las operaciones necesarias  para trabajar con citas medicas en el sistema.
@@ -14,19 +18,9 @@ public interface AppointmentPort {
 	 */
 	public void save(Appointment appointment) throws Exception;
 
-	/**
-	 * Busca una cita medica por su identificador unico.
-	 */
-	public Appointment findById(int appointmentId) throws Exception;
-
-	/**
-	 * Obtendremos todas las citas que estan asociadas a un paciente en especifico.
-	 */
-	public List<Appointment> findByPatient(long patientId) throws Exception;
-	/**
-	 * Obtendremos todas las citas que estan asociadas a un doctor en especifico.
-	 */
-	public List<Appointment> findByDoctor(long doctorId) throws Exception;
+	public AppointmentPort findById(Appointment appointment) throws Exception;
+	public boolean isDoctorAvailable(User doctor, Date date) throws Exception;
+	public boolean isPatientAvailable(Patient patient, Date date) throws Exception;
 	
 
 }

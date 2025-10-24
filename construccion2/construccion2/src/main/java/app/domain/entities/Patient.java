@@ -1,40 +1,42 @@
 package app.domain.entities;
 
-import app.domain.entities.valueobjects.EmergencyContact;
-import app.domain.entities.valueobjects.MedicalInsurance;
+import app.domain.entities.enums.Gender;
 
-public class Patient extends Person {
-	
-	
-	
-	  //aca estan los atributos que se extraen de person 
-	
-	private EmergencyContact emergencyContact; //MAXIMO 1 
-	private MedicalInsurance medicalInsurance; //MAXIMO 1
-	private User doctor; // MAXIMO 1
-	
+public class Patient extends Person{
 
+	private  String birthdate;
+	private  Gender gender;
+	private double weigth;
+	private double size;
+	private User doctor;
 	
-	public EmergencyContact getEmergencyContact() {
-		return emergencyContact;
+	
+	public Gender getGender() {
+		return gender;
 	}
-	public void setEmergencyContact(EmergencyContact emergencyContact) {
-		this.emergencyContact = emergencyContact;
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
-	public MedicalInsurance getMedicalInsurance() {
-		return medicalInsurance;
+	public double getWeigth() {
+		return weigth;
 	}
-	public void setMedicalInsurance(MedicalInsurance medicalInsurance) {
-		this.medicalInsurance = medicalInsurance;
+	public void setWeigth(double weigth) {
+		this.weigth = weigth;
+	}
+	public double getSize() {
+		return size;
+	}
+	public void setSize(double size) {
+		this.size = size;
 	}
 	public User getDoctor() {
 		return doctor;
 	}
-
 	public void setDoctor(User doctor) {
 		this.doctor = doctor;
 	}
 	
 	
 	
+
 }
