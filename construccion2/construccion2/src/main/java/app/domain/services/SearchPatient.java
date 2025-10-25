@@ -17,7 +17,7 @@ public class SearchPatient {
 		
 		// y si lo quiere buscar por cedula?
 		
-		
+		// POR AHORA LO DEJAMOS ASI 
 		patient = patientPort.findById(patient);
 		if (patient == null) {
 			throw new Exception("debe consultar un paciente registrado");

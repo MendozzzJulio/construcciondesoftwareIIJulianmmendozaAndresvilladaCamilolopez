@@ -22,6 +22,9 @@ public class CreatePatient {
 	private PatientPort patientPort;
 		
 	public void createPatient(Patient patient, User creator) throws Exception {
+		
+		// EL PERSONAL ADMINISTRATIVO TAMBIEN TIENE ACCESO A CREAR PACIENTES 
+		// HAY QUE VALIDAR ESO TAMBIEN!
 	
 		// Validamos que sea creado por un Medico	
 		if (userPort.findById(creator) == null || creator.getRole() != Role.DOCTOR) {

@@ -9,8 +9,6 @@ import app.domain.ports.PatientPort;
 
 @Service
 public class UpdatePatient {
-	
-
 	@Autowired
 	private PatientPort patientPort;
 	
@@ -25,4 +23,4 @@ public class UpdatePatient {
     }
 
 }
- 	s
+ 	
