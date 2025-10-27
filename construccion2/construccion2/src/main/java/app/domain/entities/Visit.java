@@ -4,8 +4,8 @@ package app.domain.entities;
 
 public class Visit {
 	
-	 private String patientId;
-	 private String bloodPressure;
+	 private Patient patient;
+	 private double bloodPressure;
 	 private double temperature;
 	 private int pulse;
 	 private int oxygenLevel;
@@ -14,16 +14,11 @@ public class Visit {
 	 private DiagnosticAid diagnosticAid;
 	 
 	 
-	 public String getPatientId() {
-		 return patientId;
-	 }
-	 public void setPatientId(String patientId) {
-		 this.patientId = patientId;
-	 }
-	 public String getBloodPressure() {
+	
+	 public double getBloodPressure() {
 		 return bloodPressure;
 	 }
-	 public void setBloodPressure(String bloodPressure) {
+	 public void setBloodPressure(double bloodPressure) {
 		 this.bloodPressure = bloodPressure;
 	 }
 	 public double getTemperature() {
@@ -62,7 +57,14 @@ public class Visit {
 	 public void setDiagnosticAid(DiagnosticAid diagnosticAid) {
 		 this.diagnosticAid = diagnosticAid;
 	 }
+	 public Patient getPatient() {
+		return patient;
+	 }
+	 public void setPatient(Patient patient) {
+		this.patient = patient;
+	 }
+	
+	 }
 	 
 	 
 
-}

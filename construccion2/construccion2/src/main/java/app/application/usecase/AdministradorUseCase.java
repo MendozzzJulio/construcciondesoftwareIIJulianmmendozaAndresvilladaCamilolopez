@@ -7,10 +7,10 @@ import app.domain.entities.Billing;
 import app.domain.entities.EmergencyContact;
 import app.domain.entities.Appointment;
 import app.domain.entities.Patient;
-import app.domain.ports.Adminport;
 import app.domain.services.CreateBilling;
 import app.domain.services.CreateEmergencyContact;
 import app.domain.services.CreatePatient;
+import app.domain.services.UpdatePatient;
 import app.domain.services.CreateAppointment;
 
 
@@ -18,15 +18,23 @@ import app.domain.services.CreateAppointment;
 public class AdministradorUseCase {
 	// Servicios necesarios
 	@Autowired
-	private Adminport adminport;
+	private CreatePatient createPatient;
+	@Autowired
+	private CreateAppointment createAppointment;
+	@Autowired
+	private CreateBilling createBilling;
+	@Autowired
+	private CreateEmergencyContact createEmergencyContact;
+	@Autowired
+	private UpdatePatient updatePatient;
 	
 	// Método para crear el enfermo 
 	public void createPatient(Patient patient) throws Exception {
-		createPatient.createPatient(patient);
+		createPatient.createPatient(patient, null);
 	}
 	// Método para actualizar el  enfermo 
 	public void updatePatient(Patient patient) throws Exception {	
-		createPatient.updatePatient(patient);		
+		updatePatient.update(patient);		
 	}
 	// Método para crear la cita y que tales 
 	public void createAppointment(Appointment appointment) throws Exception {	

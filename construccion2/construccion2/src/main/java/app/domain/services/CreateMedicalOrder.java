@@ -39,6 +39,10 @@ public class CreateMedicalOrder {
         medicalOrder.setDoctor(doctor);
         medicalOrderPort.save(medicalOrder);
 	}
+
+
+		
+	}
 	
 	
-}
+

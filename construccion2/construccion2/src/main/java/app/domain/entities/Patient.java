@@ -35,6 +35,12 @@ public class Patient extends Person{
 	public void setDoctor(User doctor) {
 		this.doctor = doctor;
 	}
+	public String getBirthdate() {
+		return birthdate;
+	}
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
 	
 	
 	
