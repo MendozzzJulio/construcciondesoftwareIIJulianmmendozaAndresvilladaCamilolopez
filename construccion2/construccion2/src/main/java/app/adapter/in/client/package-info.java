@@ -1,0 +1,1 @@
+package app.adapter.in.client;

@@ -24,7 +24,7 @@ public class NursesUseCase {
 	private CreateVisit createVisit;
 	
 	public void createVisit(Visit visit) throws Exception {
-		createVisit.createVisit(visit);
+		createVisit.createVisit(visit); 
 	}
 	
 	public List<MedicalOrder> searchMedicalOrder(MedicalOrder medicalOrder) throws Exception {

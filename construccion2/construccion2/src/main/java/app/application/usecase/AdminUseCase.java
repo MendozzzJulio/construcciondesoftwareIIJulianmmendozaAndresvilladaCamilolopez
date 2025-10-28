@@ -15,7 +15,7 @@ import app.domain.services.CreateAppointment;
 
 
 @Service
-public class AdministradorUseCase {
+public class AdminUseCase {
 	// Servicios necesarios
 	@Autowired
 	private CreatePatient createPatient;
