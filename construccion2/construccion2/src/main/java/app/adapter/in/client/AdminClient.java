@@ -1,6 +1,6 @@
 package app.adapter.in.client;
 
-import app.adapter.in.builders;
+import app.adapter.in.builder.PatientBuilders;
 
 import java.util.Scanner;
 
