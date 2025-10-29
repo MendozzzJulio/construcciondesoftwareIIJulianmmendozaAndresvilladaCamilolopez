@@ -18,8 +18,24 @@ public abstract class Person {
 	private PhoneNumber phoneNumber;
 	private LocalDate dateOfBirth;
 	
-	
-	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public long getDocument() {
+		return document;
+	}
+	public void setDocument(long document) {
+		this.document = document;
+	}
 	public String getName() {
 		return name;
 	}
@@ -56,26 +72,8 @@ public abstract class Person {
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public long getDocument() {
-		return document;
-	}
-	public void setDocument(long document) {
-		this.document = document;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
+	
+	
+	
 
-	
-	
-	
 }

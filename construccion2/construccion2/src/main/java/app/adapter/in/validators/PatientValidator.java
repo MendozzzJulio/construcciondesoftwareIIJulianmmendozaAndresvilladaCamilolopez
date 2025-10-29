@@ -28,6 +28,10 @@ public class PatientValidator extends SimpleValidator {
 		stringValidator("numero de telefono", value);
 		return new PhoneNumber(value); 
 	}
+
+	public String genderValidator(String value) throws Exception {
+		return stringValidator("genero", value);
+	}
 	
 	public Address addressValidator(String value) throws Exception{
 		stringValidator("Direccion", value);
