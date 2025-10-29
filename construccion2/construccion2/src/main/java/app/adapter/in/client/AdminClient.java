@@ -1,5 +1,7 @@
 package app.adapter.in.client;
 
+import app.adapter.in.builders;
+
 import java.util.Scanner;
 
 import app.application.usecase.AdminUseCase;
@@ -8,18 +10,29 @@ import app.domain.entities.Patient;
 // Se supone que son las opciones del admin
 // Este cliente es el encargado de la interaccion con el administrador del sistema
 public class AdminClient {
-	private static final String MENU = " ***Ingrese una opcion*** \n1. Crear paciente \n2. Crear cita \n3. Crear factura \n4 Actualizar factura \n5. Crear contacto de emergencia \n6. Salir";		
+	private static final String MENU = " ***Ingrese una opcion*** \n1. Crear paciente \n2. Crear cita \n3. Crear factura \n4 Actualizar paciente \n5. Crear contacto de emergencia \n6. Salir";		
 	private static Scanner reader = new Scanner(System.in);
 	private AdminUseCase adminUsecase;
 	
+	
+
+/**
+     * Muestramos el menú del dia  y ejecutamos  la opción seleccionada por el administrador.
+     * @return true si se debe continuar la sesión, false si se debe terminar.
+     */
 	private boolean menu() {
 		try {
 			System.out.println(MENU);
 			String option = reader.nextLine();
 			switch(option) {
 			case "1":{
+				// Creamos el nuevo enfermo 
 				Patient patient = readInfoFromPatient();
 				adminUsecase.createPatient(patient);
+				//Break
+			}
+			case "6":{
+				
 			}
 			
 			}
@@ -31,6 +44,12 @@ public class AdminClient {
 	
 	private Patient readInfoFromPatient() throws Exception {
 		
+
+ /**
+ * Solicita al administrador la información necesaria para crear un paciente.
+ * @return una instancia de Patient con los datos ingresados.
+ * @throws Exception si ocurre un error durante la lectura.
+ */
 		System.out.println("Ingrese el numero de cedula del paciente.");
 		String document = reader.nextLine();
 		System.out.println("Ingrese el nombre del paciente.");
@@ -45,11 +64,31 @@ public class AdminClient {
 		String phoneNumber = reader.nextLine();
 		System.out.println("Ingrese la fecha de nacimiento del paciente.");
 		String dateOfBirth = reader.nextLine();
+		System.out.println("Ingrese el genero del paciente.");
+		String gender = reader.nextLine();
+		System.out.println("Ingrese el peso del paciente.");
+		String weight = reader.nextLine();
+		System.out.println("Ingrese la altura del paciente.");
+		String height = reader.nextLine();
+		
+		return PatientBuilders.builder()
+                .document(document)
+                .name(name)
+                .lastName(lastName)
+                .email(email)
+                .address(address)
+                .phoneNumber(phoneNumber)
+                .dateOfBirth(date)
+		
 		
 		
         
 	}
 	
+
+ /**
+* Aca se inicia la sesión del administrador, mostrando el menú en un bucle hasta que decida salir
+* */
 	public void session() {
 		boolean session = true;
 		while(session) {
