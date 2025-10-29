@@ -15,7 +15,7 @@ public class PatientBuilders{
 		patient.setLastName(patientValidator.lastNameValidator(LastName));
 		patient.setDocument(patientValidator.documentValidator(document));
 		patient.setEmail(patientValidator.emailValidator(email)); // problema, el tipo es un objecto de valor y el setters esta ingresando un string (conflicto en el tipo de dato)
-		patient.setPhoneNumber(patientValidator.phoneNumberValidator( phoneNumber));// conflicto en el tipo de dato 
+		patient.setPhoneNumber(patientValidator.phoneValidator(phoneNumber));// conflicto en el tipo de dato 
 		patient.setAddress(patientValidator.addressValidator(address)); //conflicto en el tipo de dato
 		patient.setGender(patientValidator.genderValidator(gender));
 		

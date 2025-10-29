@@ -9,7 +9,14 @@ public class Patient extends Person{
 	private double weigth;
 	private double height;
 	private User doctor;
+	private EmergencyContact emergencyContact;
 	
+	public void setEmergencyContact(EmergencyContact emergencyContact) {
+		this.emergencyContact = emergencyContact;
+	}
+	public EmergencyContact getEmergencyContact() {
+		return emergencyContact;
+	}
 	
 	public Gender getGender() {
 		return gender;

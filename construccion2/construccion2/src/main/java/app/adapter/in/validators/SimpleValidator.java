@@ -34,20 +34,11 @@ public abstract class SimpleValidator {
 		} catch (Exception e) {
 			throw new Exception("El campo " + element + " dede tener un valor numerico.");
 		}
+}
 		
-	public PhoneNumber phoneNumberValidator(String element, String value) throws Exception {
-
-		stringValidator(element, value);
-
-		try {
-			PhoneNumber =phoneNumber.toString().length() != 10);
-			return phoneNumber;
-		} catch (Exception e) {
-			throw new Exception("El campo " + element + " dede tener un formato valido.");
-		}
-
+	
 		
 		
 	}
 
-}
+

@@ -1,5 +1,12 @@
 package app.adapter.in.validators;
 
+
+
+import app.domain.entities.EmergencyContact;
+import app.domain.entities.valueobjects.Address;
+import app.domain.entities.valueobjects.Email;
+import app.domain.entities.valueobjects.PhoneNumber;
+
 public class PatientValidator extends SimpleValidator {
 	
 	public String nameValidator(String value) throws Exception {
@@ -10,17 +17,28 @@ public class PatientValidator extends SimpleValidator {
 		return stringValidator("apellido", value);
 	}
 
-	public String emailValidator(String value) throws Exception {
-		return stringValidator("email", value);
+	public Email emailValidator(String value) throws Exception {
+		stringValidator("email", value);
+		return new Email(value); 
 	}
 
-	public String addressValidator(String value) throws Exception {
-		return stringValidator("direccion", value);
-	}
+	
 
-	public String phoneNumberValidator(String value) throws Exception {
-		return stringValidator("numero de telefono", value);
+	public PhoneNumber phoneValidator(String value) throws Exception {
+		stringValidator("numero de telefono", value);
+		return new PhoneNumber(value); 
 	}
+	
+	public Address addressValidator(String value) throws Exception{
+		stringValidator("Direccion", value);
+		return new Address(value);
+	}
+	
+	public EmergencyContact emergencyContactValidator(String value) throws Exception {
+		stringValidator("Contacto de emergencia", value);
+		return new EmergencyContact(value);
+	}
+	
 	
 	public String passwordValidator(String value) throws Exception {
 		return stringValidator("contraseña", value);	
@@ -29,6 +47,8 @@ public class PatientValidator extends SimpleValidator {
 	public long documentValidator (String value) throws Exception{
 		return longValidator("El documento de la persona value", value);
 	}
+	
+	
 	
 	
 	
