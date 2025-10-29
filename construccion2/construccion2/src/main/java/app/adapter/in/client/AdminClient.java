@@ -10,6 +10,7 @@ import app.domain.entities.Patient;
 // Se supone que son las opciones del admin
 // Este cliente es el encargado de la interaccion con el administrador del sistema
 public class AdminClient {
+
 	private static final String MENU = " ***Ingrese una opcion*** \n1. Crear paciente \n2. Crear cita \n3. Crear factura \n4 Actualizar paciente \n5. Crear contacto de emergencia \n6. Salir";		
 	private static Scanner reader = new Scanner(System.in);
 	private AdminUseCase adminUsecase;
