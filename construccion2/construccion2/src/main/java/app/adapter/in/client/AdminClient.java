@@ -29,17 +29,36 @@ public class AdminClient {
 				// Creamos el nuevo enfermo 
 				Patient patient = readInfoFromPatient();
 				adminUsecase.createPatient(patient);
-				//Break
+				return true;
+			}
+			case "2": {
+				
+
+			}
+			case "3": {
+
+			}
+			case "4": {
+
+			}
+			case "5": {
+
 			}
 			case "6":{
-				
+				System.out.println("Hasta luego \n Cerrando sesion");
+				return false;
 			}
-			
-			}	
-		}catch(Exception e){
+			default:{
+                System.out.println("Ingrese una opcion valida");
+                return true;
+			}
+			}
+		} catch(Exception e){
+			System.out.println(e.getMessage());
+            return true;
 		}
-		return true;	
 	}
+	
 	
 	private Patient readInfoFromPatient() throws Exception {
  /**
@@ -66,7 +85,8 @@ public class AdminClient {
 		System.out.println("Ingrese el peso del paciente.");
 		String weight = reader.nextLine();
 		System.out.println("Ingrese la altura del paciente.");
-		String height = reader.nextLine();	
+		String height = reader.nextLine();
+		return PatientBuilders.build(name, lastName, document, email, phoneNumber, address);
         
 	}
 	
