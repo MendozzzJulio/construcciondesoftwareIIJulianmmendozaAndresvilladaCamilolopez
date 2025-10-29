@@ -21,6 +21,10 @@ public class PatientValidator extends SimpleValidator {
 	public String phoneNumberValidator(String value) throws Exception {
 		return stringValidator("numero de telefono", value);
 	}
+
+	public String genderValidator(String value) throws Exception {
+		return stringValidator("genero", value);
+	}
 	
 	public String passwordValidator(String value) throws Exception {
 		return stringValidator("contraseña", value);	
