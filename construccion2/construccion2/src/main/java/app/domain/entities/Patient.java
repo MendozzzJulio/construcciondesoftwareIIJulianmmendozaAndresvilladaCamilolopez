@@ -7,7 +7,7 @@ public class Patient extends Person{
 	
 	private  Gender gender;
 	private double weigth;
-	private double size;
+	private double height;
 	private User doctor;
 	
 	
@@ -23,11 +23,11 @@ public class Patient extends Person{
 	public void setWeigth(double weigth) {
 		this.weigth = weigth;
 	}
-	public double getSize() {
-		return size;
+	public double getHeight() {
+		return height;
 	}
-	public void setSize(double size) {
-		this.size = size;
+	public void setHeight(double size) {
+		this.height = size;
 	}
 	public User getDoctor() {
 		return doctor;

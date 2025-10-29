@@ -35,16 +35,13 @@ public class AdminClient {
 				
 			}
 			
-			}
-			
+			}	
 		}catch(Exception e){
 		}
 		return true;	
 	}
 	
 	private Patient readInfoFromPatient() throws Exception {
-		
-
  /**
  * Solicita al administrador la información necesaria para crear un paciente.
  * @return una instancia de Patient con los datos ingresados.
@@ -69,23 +66,10 @@ public class AdminClient {
 		System.out.println("Ingrese el peso del paciente.");
 		String weight = reader.nextLine();
 		System.out.println("Ingrese la altura del paciente.");
-		String height = reader.nextLine();
-		
-		return PatientBuilders.builder()
-                .document(document)
-                .name(name)
-                .lastName(lastName)
-                .email(email)
-                .address(address)
-                .phoneNumber(phoneNumber)
-                .dateOfBirth(date)
-		
-		
-		
+		String height = reader.nextLine();	
         
 	}
 	
-
  /**
 * Aca se inicia la sesión del administrador, mostrando el menú en un bucle hasta que decida salir
 * */
