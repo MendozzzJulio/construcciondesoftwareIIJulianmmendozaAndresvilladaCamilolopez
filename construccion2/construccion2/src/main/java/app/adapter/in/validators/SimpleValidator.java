@@ -10,13 +10,31 @@ public abstract class SimpleValidator {
 		return value;
 	}
 	
-	public String integerValidator(String element, String value) throws Exception {
+	public int integerValidator(String element, String value) throws Exception {
+		
 		stringValidator(element, value);
+		
 		try {
-			Integer.parseInt(value);
-		} catch (NumberFormatException e) {
-			throw new Exception("El campo " + element + " debe ser un numero entero.");
+			int intValue = Integer.parseInt(value);
+			return intValue;
+		} catch (Exception e) {
+			throw new Exception("El campo " + element + " dede tener un valor numerico.");
+		}	
+	}
+	
+	public long longValidator(String element, String value) throws Exception {
+		
+		stringValidator(element, value);
+
+		try {
+			long longValue = Long.parseLong(value);
+			return longValue;
+		} catch (Exception e) {
+			throw new Exception("El campo " + element + " dede tener un valor numerico.");
 		}
+
+		
+		
 	}
 
 }

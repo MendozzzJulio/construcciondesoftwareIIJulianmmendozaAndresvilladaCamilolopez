@@ -9,6 +9,7 @@ import app.domain.entities.valueobjects.PhoneNumber;
 public abstract class Person {
 	
 	private long id;
+	private int age;
 	private long document; // Cedula de ciudadania
 	private String name;
 	private String lastName; 
@@ -66,6 +67,12 @@ public abstract class Person {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	

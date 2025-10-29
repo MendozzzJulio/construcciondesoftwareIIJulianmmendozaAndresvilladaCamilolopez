@@ -4,7 +4,7 @@ import app.domain.entities.enums.Gender;
 
 public class Patient extends Person{
 
-	private  String birthdate;
+	
 	private  Gender gender;
 	private double weigth;
 	private double size;
@@ -35,13 +35,7 @@ public class Patient extends Person{
 	public void setDoctor(User doctor) {
 		this.doctor = doctor;
 	}
-	public String getBirthdate() {
-		return birthdate;
-	}
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
-	}
-	
+
 	
 	
 
