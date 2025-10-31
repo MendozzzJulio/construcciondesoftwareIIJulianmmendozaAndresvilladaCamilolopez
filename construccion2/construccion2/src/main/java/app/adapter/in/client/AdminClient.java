@@ -1,19 +1,24 @@
 package app.adapter.in.client;
 
+import app.adapter.in.builder.AppointmentBuilders;
 import app.adapter.in.builder.PatientBuilders;
 
 import java.util.Scanner;
 
 import app.application.usecase.AdminUseCase;
+import app.domain.entities.Appointment;
 import app.domain.entities.Patient;
+
 
 // Se supone que son las opciones del admin
 // Este cliente es el encargado de la interaccion con el administrador del sistema
 public class AdminClient {
 
-	private static final String MENU = " ***Ingrese una opcion*** \n1. Crear paciente \n2. Crear cita \n3. Crear factura \n4 Actualizar paciente \n5. Crear contacto de emergencia \n6. Salir";		
+	private static final String MENU = " ***Ingrese una opcion*** \n1. Crear paciente \n2. Crear cita medica\n3. Crear factura \n4 Actualizar paciente \n5. Crear contacto de emergencia \n6. Salir";		
 	private static Scanner reader = new Scanner(System.in);
 	private AdminUseCase adminUsecase;
+	private PatientBuilders PatientBuilders;
+	private AppointmentBuilders AppointmentBuilders;
 	
 	
 
@@ -33,6 +38,9 @@ public class AdminClient {
 				return true;
 			}
 			case "2": {
+				Appointment appointment = readInfoFromAppointment();
+				adminUsecase.createAppointment(appointment);
+				return true;
 				
 
 			}
@@ -40,6 +48,12 @@ public class AdminClient {
 
 			}
 			case "4": {
+				System.out.println("Ingrese el id del paciente a actualizar");
+				long id = Long.parseLong(reader.nextLine());
+				Patient patient = readInfoFromPatient();
+				patient.setId(id);
+				adminUsecase.updatePatient(patient);
+				return true;
 
 			}
 			case "5": {
@@ -87,8 +101,20 @@ public class AdminClient {
 		String weight = reader.nextLine();
 		System.out.println("Ingrese la altura del paciente.");
 		String height = reader.nextLine();
-		return PatientBuilders.build(name, lastName, document, email, phoneNumber, address);
+		return PatientBuilders.build(name, lastName, document, email, phoneNumber, address,dateOfBirth, gender, weight, height);
         
+	}
+
+	private Appointment readInfoFromAppointment() throws Exception {
+		
+		System.out.println("Ingrese el nombre del doctor.");
+		String doctorname = reader.nextLine();
+		System.out.println("Ingrese el nombre del paciente.");
+		String patientname = reader.nextLine();
+		System.out.println("Ingrese la fecha de la cita.");
+		String date = reader.nextLine();
+		
+		return AppointmentBuilders.build(doctorname, patientname, date);
 	}
 	
  /**

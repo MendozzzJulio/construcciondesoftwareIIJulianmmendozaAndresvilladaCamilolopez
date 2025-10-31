@@ -8,7 +8,7 @@ public class PatientBuilders{
 	private PatientValidator patientValidator;
 
 
-	public Patient build(String Name,String LastName,String document, String email, String phoneNumber, String address, String gender, String birthdate, String weigth, String size)
+	public  Patient build(String Name,String LastName,String document, String email, String phoneNumber, String address, String gender, String dateOfBirth, String weigth, String height)
 		throws Exception {
 		Patient patient = new Patient();
 		patient.setName(patientValidator.nameValidator(Name));
@@ -18,6 +18,10 @@ public class PatientBuilders{
 		patient.setPhoneNumber(patientValidator.phoneValidator(phoneNumber));// conflicto en el tipo de dato
 		patient.setAddress(patientValidator.addressValidator(address)); //conflicto en el tipo de dato
 		patient.setGender(patientValidator.genderValidator(gender));
+		patient.setDateOfBirth(patientValidator.dateOfBirthValidator(dateOfBirth));
+		patient.setWeigth(patientValidator.weightValidator(weigth)); 
+		patient.setHeight(patientValidator.heightValidator(height));
+		
 		
 		return patient;
 

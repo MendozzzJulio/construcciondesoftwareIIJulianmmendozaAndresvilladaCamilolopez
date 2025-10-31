@@ -9,8 +9,8 @@ public class Appointment {
 	private User Doctor;
 	private Patient patient;
 	private Date date;
-	private String patientId;
-	private String doctorId;
+	private String patientId; //Duda = Identificacion del paciente creo que no va aqui ya que ya tenemos el objeto paciente
+	private String doctorId;  //Duda = Identificacion del doctor creo que no va aqui ya que ya tenemos el objeto doctor
 	private String reason;
 	
 	

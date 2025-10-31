@@ -1,13 +1,13 @@
 package app.adapter.in.validators;
+
 import java.time.LocalDate;
 
-import app.domain.entities.EmergencyContact;
-import app.domain.entities.enums.Gender;
+import app.domain.entities.enums.Role;
 import app.domain.entities.valueobjects.Address;
 import app.domain.entities.valueobjects.Email;
 import app.domain.entities.valueobjects.PhoneNumber;
 
-public class PatientValidator extends SimpleValidator {
+public class UserValidator  extends SimpleValidator {
 	
 	public String nameValidator(String value) throws Exception {
 		return stringValidator("nombre", value);
@@ -16,7 +16,7 @@ public class PatientValidator extends SimpleValidator {
 	public String lastNameValidator(String value) throws Exception {
 		return stringValidator("apellido", value);
 	}
-
+	
 	public Email emailValidator(String value) throws Exception {
 		stringValidator("email", value);
 		return new Email(value); 
@@ -31,22 +31,7 @@ public class PatientValidator extends SimpleValidator {
 		stringValidator("Direccion", value);
 		return new Address(value);
 	}
-	
-	public EmergencyContact emergencyContactValidator(String value, String name, String lastName, String phoneNumber) throws Exception {
-		stringValidator("Contacto de emergencia", value);
-		EmergencyContact contact = new EmergencyContact();
-		contact.setLastName(stringValidator("apelldo de Contacto de emergencia", lastName));
-		contact.setName(stringValidator("Nombre del contacto de emergencia", name));
-		contact.setPhoneNumber(phoneValidator(phoneNumber));;
-		return contact;
-	}
-	
-	public Gender genderValidator(String value) throws Exception {
-		stringValidator("genero", value);
-		return Gender.valueOf(value.toUpperCase()); 
-	} 
-	
-	
+
 	public String passwordValidator(String value) throws Exception {
 		return stringValidator("contraseña", value);	
 	}
@@ -60,14 +45,11 @@ public class PatientValidator extends SimpleValidator {
 		return LocalDate.parse(value);
 	}
 
-	public double weightValidator(String value) throws Exception {
-		return doubleValidator("El peso de la persona", value);
+	public Role roleValidator(String value) throws Exception {
+		stringValidator("rol del usuario", value);
+		return Role.valueOf(value.toUpperCase());
 	}
 
-	public double heightValidator(String value) throws Exception {
-		return doubleValidator("La altura de la persona", value);
-	}
-	
 	
 	
 	

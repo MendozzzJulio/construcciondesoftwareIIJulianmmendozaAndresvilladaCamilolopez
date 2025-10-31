@@ -1,7 +1,7 @@
 package app.adapter.in.validators;
 
 import app.application.exceptions.InputsException;
-import app.domain.entities.valueobjects.PhoneNumber;
+
 
 public abstract class SimpleValidator {
 	
