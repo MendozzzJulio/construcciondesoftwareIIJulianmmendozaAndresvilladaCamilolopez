@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class Appointment {
 	
-	private Long appointmentId;
+	private long id;
 	private User Doctor;
 	private Patient patient;
 	private Date date;
@@ -14,11 +14,11 @@ public class Appointment {
 	private String reason;
 	
 	
-	public Long getAppointmentId() {
-		return appointmentId;
+	public Long getId() {
+		return id;
 	}
 	public void setAppointmentId(Long appointmentId) {
-		this.appointmentId = appointmentId;
+		this.id = appointmentId;
 	}
 	public User getDoctor() {
 		return Doctor;

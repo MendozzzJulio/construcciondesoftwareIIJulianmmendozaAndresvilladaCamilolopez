@@ -1,6 +1,9 @@
 package app.domain.entities;
 
 import java.sql.Date;
+import java.util.List;
+
+
 
 public class MedicalOrder {
 	
@@ -8,6 +11,7 @@ public class MedicalOrder {
 	private Patient patient;
 	private User doctor;
 	private Date date;
+	private List<MedicalOrderType> items;
 	
 	
 	public long getId() {
@@ -33,6 +37,12 @@ public class MedicalOrder {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	public List<MedicalOrderType> getItems() {
+		return items;
+	}
+	public void setItems(List<MedicalOrderType> items) {
+		this.items = items;
 	} 
 	
 	

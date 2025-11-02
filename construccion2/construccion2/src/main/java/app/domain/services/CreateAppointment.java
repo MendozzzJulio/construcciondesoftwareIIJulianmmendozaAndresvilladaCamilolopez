@@ -10,7 +10,7 @@ public class CreateAppointment {
 	@Autowired
 	private AppointmentPort AppointmentPort;
 
-    public void createAppointment(Appointment appointment) throws Exception {
+    public void create(Appointment appointment) throws Exception {
         
         if (!AppointmentPort.isDoctorAvailable(appointment.getDoctor(), appointment.getDate())) {
             throw new Exception("El doctor ya tiene una cita agendada para esa fecha y hora.");

@@ -34,15 +34,11 @@ public class CreateMedicalOrder {
         	throw new Exception("Las ordenes medicas deben de asociarse a un paciente");	
         }
         
-        medicalOrder.setDate(new Date(System.currentTimeMillis()));
-        medicalOrder.setPatient(patient);
-        medicalOrder.setDoctor(doctor);
         medicalOrderPort.save(medicalOrder);
+   
 	}
-
-
 		
-	}
+}//end class
 	
 	
 
