@@ -7,6 +7,7 @@ public class MedicalOrderType {
 	private long id;
 	private MedicalItemType item;
 	private String description;
+	private int itemNumber;
 	public long getId() {
 		return id;
 	}
@@ -24,6 +25,12 @@ public class MedicalOrderType {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public int getItemNumber() {
+		return itemNumber;
+	}
+	public void setItemNumber(int itemNumber) {
+		this.itemNumber = itemNumber;
 	}
 	
 
