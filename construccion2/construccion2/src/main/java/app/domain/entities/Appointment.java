@@ -9,8 +9,6 @@ public class Appointment {
 	private User Doctor;
 	private Patient patient;
 	private Date date;
-	private String patientId; //Duda = Identificacion del paciente creo que no va aqui ya que ya tenemos el objeto paciente
-	private String doctorId;  //Duda = Identificacion del doctor creo que no va aqui ya que ya tenemos el objeto doctor
 	private String reason;
 	
 	
@@ -38,18 +36,7 @@ public class Appointment {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getPatientId() {
-		return patientId;
-	}
-	public void setPatientId(String patientId) {
-		this.patientId = patientId;
-	}
-	public String getDoctorId() {
-		return doctorId;
-	}
-	public void setDoctorId(String doctorId) {
-		this.doctorId = doctorId;
-	}
+	
 	public String getReason() {
 		return reason;
 	}
@@ -57,6 +44,4 @@ public class Appointment {
 		this.reason = reason;
 	}
 	
-	
-
 }

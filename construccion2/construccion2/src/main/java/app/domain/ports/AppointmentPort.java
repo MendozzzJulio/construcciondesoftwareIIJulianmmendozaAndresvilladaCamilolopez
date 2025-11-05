@@ -18,7 +18,8 @@ public interface AppointmentPort {
 	 */
 	public void save(Appointment appointment) throws Exception;
 
-	public AppointmentPort findById(Appointment appointment) throws Exception;
+	public Appointment findById(Appointment appointment) throws Exception;
 	public boolean isDoctorAvailable(User doctor, Date date) throws Exception;
 	public boolean isPatientAvailable(Patient patient, Date date) throws Exception;
+	public void delete(Appointment appointment) throws Exception;
 }

@@ -1,37 +1,70 @@
 package app.domain.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import app.domain.entities.User;
 import app.domain.entities.enums.Role;
-import app.domain.ports.PatientPort;
 import app.domain.ports.UserPort;
 
-
+@Service
 public class CreateUser {
 	@Autowired  
 	private UserPort userPort;
 	
-	// En este clase creamos al empleado de la clinica asignandole un rol 
-	
-	/*
-	 * Se debe validar que sea creado por un admin
-	 * 
-	 * Se debe asignar un rol al empleado */
-	
-	public void crate(User employee) throws Exception {
-
-		// Validar que el rol sea valido
+	public void create(User employee, User adminUser) throws Exception {
 		
+		if (employee == null) {
+			throw new Exception("El empleado no puede ser nulo");
 		}
-
-		// Lógica para guardar el empleado en  	 sistema (omitir implementación)
 		
+		if (adminUser == null) {
+			throw new Exception("Se requiere un usuario administrador para crear empleados");
+		}
 		
+		User admin = userPort.findById(adminUser);
+		if (admin == null) {
+			throw new Exception("El usuario administrador no existe en el sistema");
+		}
 		
+		if (!admin.getRole().equals(Role.ADMINISTRATIVE)) {
+			throw new Exception("Solo usuarios de Recursos Humanos pueden crear empleados");
+		}
 		
+		if (employee.getName() == null || employee.getName().trim().isEmpty()) {
+			throw new Exception("El nombre del empleado es obligatorio");
+		}
+		
+		if (employee.getLastName() == null || employee.getLastName().trim().isEmpty()) {
+			throw new Exception("El apellido del empleado es obligatorio");
+		}
+		
+		if (employee.getDocument() == 0) {
+			throw new Exception("El documento del empleado es obligatorio");
+		}
+		
+		if (employee.getUsername() == null || employee.getUsername().trim().isEmpty()) {
+			throw new Exception("El nombre de usuario es obligatorio");
+		}
+		
+		if (employee.getPassword() == null || employee.getPassword().trim().isEmpty()) {
+			throw new Exception("La contraseña es obligatoria");
+		}
+		
+		if (employee.getRole() == null) {
+			throw new Exception("El rol del empleado es obligatorio");
+		}
+		
+		User existingByDocument = userPort.findByDocument(employee);
+		if (existingByDocument != null) {
+			throw new Exception("Ya existe un usuario con ese documento");
+		}
+		
+		User existingByUsername = userPort.findByUsername(employee);
+		if (existingByUsername != null) {
+			throw new Exception("Ya existe un usuario con ese nombre de usuario");
+		}
+		
+		userPort.save(employee);
 	}
-	
-	
-	
-
+}

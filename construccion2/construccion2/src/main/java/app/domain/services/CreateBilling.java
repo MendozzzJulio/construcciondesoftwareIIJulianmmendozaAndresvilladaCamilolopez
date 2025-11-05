@@ -13,14 +13,12 @@ public class CreateBilling {
 	@Autowired
 	private BillingPort billingPort;
 	
-	public void createBilling(Billing billing) throws Exception {
+	public void create(Billing billing) throws Exception {
 		
 		if (billingPort.findbyDocument(billing) == null) {
 			throw new Exception("El paciente no existe");
 		}
 		
-		
-
 		billingPort.save(billing);
 
 	}

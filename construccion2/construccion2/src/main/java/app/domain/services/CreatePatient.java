@@ -21,7 +21,7 @@ public class CreatePatient {
 	@Autowired
 	private PatientPort patientPort;
 		
-	public void createPatient(Patient patient, User creator) throws Exception {
+	public void create(Patient patient, User creator) throws Exception {
 		
 		// EL PERSONAL ADMINISTRATIVO TAMBIEN TIENE ACCESO A CREAR PACIENTES 
 		// HAY QUE VALIDAR ESO TAMBIEN!

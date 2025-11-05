@@ -17,15 +17,6 @@ import app.domain.ports.UserPort;
 import app.domain.ports.MedicalOrderPort;
 import app.domain.ports.PatientPort;
 
-/* Hey aqui Mendoza
- * 
- * En esta clase tenemos que cumplir con las validaciones que se nos piden
- * 
- * No recuerdo las validaciones pero veamos a ver
- * 
- * 
- * */
-
 @Service 
 public class CreateMedicalOrder {
 	
@@ -37,57 +28,42 @@ public class CreateMedicalOrder {
 	private MedicalOrderPort medicalOrderPort;	
 	
 	public void create(MedicalOrder medicalOrder) throws Exception{  
-		
-		// Extraemos informacion del user creador y validamos que sea un doctor o un admin
+
+			
 		User doctor = userPort.findById(medicalOrder.getDoctor());
-        if (doctor == null || !doctor.getRole().equals(Role.DOCTOR) || doctor.getRole().equals(Role.ADMINISTRATIVE)) {
-            throw new Exception("Las ordenes solo pueden ser creadas por un doctor o un admin.");
+        if (doctor == null || !doctor.getRole().equals(Role.DOCTOR)) {
+            throw new Exception("Las ordenes solo pueden ser creadas por un doctor");
         }
         
-        // Validamos que el paciente exista
         Patient patient = patientPort.findById(medicalOrder.getPatient());
+
         if (patient==null) {
         	throw new Exception("Las ordenes medicas deben de asociarse a un paciente");
         }
-        // Validamos que el identificador de la orden sea unico
-        // La vaerdad creo que no será necesario porque el id es automatico
+
         MedicalOrder existing = medicalOrderPort.findById(medicalOrder);
         if (existing != null) {
         	throw new Exception("El identificador de la orden ya existe, debe ser único");
         }
-        
-        //Se valida que la orden tenga al menos un item
+
         List<MedicalOrderType> items = medicalOrder.getItems();
         if (items == null || items.isEmpty()) {
         	throw new Exception("La orden debe contener al menos un ítem");
         }
 
-        // Banderita para ver si hay un diagnostico y si hay medicamentos o procedimientos
         boolean hasDiagnostic = false;
         boolean hasMedOrProc = false;
-        // Este visaje es para ver si hay duplicados
-        // funciona con el set. Set es una coleccion que no permite duplicados. 
-        
         Set<String> seenItems = new HashSet<>(); 
 
         int counter = 1;
-        
-        // I es un item e Items es la coleccion de items en la database 
-        
         for (MedicalOrderType i : items) {
-        	
         	if (i == null) {
         		throw new Exception("Ítem inválido en la orden");
         	}
-        	
-        	// instacio a un item en especifico 
         	MedicalItemType type = i.getItem();
         	if (type == null) {
         		throw new Exception("Cada ítem debe tener un tipo");
         	}
-        	
-        	/*es null? si es asi lo convierto a un cadena 
-        	 * vacia y si no lo convierto a minusculas y quito espacios en blanco */ 
         	String key = (i.getDescription() == null ? "" : i.getDescription().trim().toLowerCase());
         	if (key.isEmpty()) {
         		throw new Exception("Cada ítem debe tener una descripción no vacía");

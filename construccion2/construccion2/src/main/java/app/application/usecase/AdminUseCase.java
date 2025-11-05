@@ -30,7 +30,7 @@ public class AdminUseCase {
 	
 	// Método para crear el enfermo 
 	public void createPatient(Patient patient) throws Exception {
-		createPatient.createPatient(patient, null);
+		createPatient.create(patient, null);
 	}
 	// Método para actualizar el  enfermo 
 	public void updatePatient(Patient patient) throws Exception {	
@@ -38,11 +38,11 @@ public class AdminUseCase {
 	}
 	// Método para crear la cita y que tales 
 	public void createAppointment(Appointment appointment) throws Exception {	
-		createAppointment.createAppointment(appointment);		
+		createAppointment.create(appointment);		
 	}
 	// Método para crear la factura pa que paguen esos parceros 
 	public void createBilling(Billing billing) throws Exception {	
-		createBilling.createBilling(billing);		
+		createBilling.create(billing);		
 	}
 	// Método para crear el contacto de emergencia
 	public void createEmergencyContact(EmergencyContact emergencyContact) throws Exception {	
