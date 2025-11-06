@@ -24,11 +24,11 @@ public class CreatePatient {
 	public void create(Patient patient, User creator) throws Exception {
 		
 		// EL PERSONAL ADMINISTRATIVO TAMBIEN TIENE ACCESO A CREAR PACIENTES 
-		// HAY QUE VALIDAR ESO TAMBIEN!
-	
-		// Validamos que sea creado por un Medico	
-		if (userPort.findById(creator) == null || creator.getRole() != Role.DOCTOR) {
-			throw new Exception("Solo un doctor puede crear pacientes.");
+		// HAY QUE VALIDAR ESO TAMBIEN! R// sugerencia resulta por camilinPimguin
+		
+		// Validamos que sea creado por un Medico	o un rol administrativo
+		if (userPort.findById(creator) == null || creator.getRole() != Role.DOCTOR || creator.getRole() != Role.ADMINISTRATIVE) {
+			throw new Exception("Solo un doctor o el  personal administrativo puede crear pacientes.");
 		}
 		
 		// Validación: Verificamos si ya existe un enfermo  con el mismo documento

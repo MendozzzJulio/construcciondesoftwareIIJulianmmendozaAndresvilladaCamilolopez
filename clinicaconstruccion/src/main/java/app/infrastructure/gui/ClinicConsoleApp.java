@@ -493,7 +493,7 @@ public class ClinicConsoleApp {
             );
             
             VitalSigns recorded = nursingUseCase.recordVitalSigns(vitalSigns);
-            System.out.println("✅ Signos vitales registrados exitosamente.");
+            System.out.println("✅ Signos vitales registrados exitosamente." + " el dia: " + recorded.getRecordDate());
         } catch (Exception e) {
             System.out.println("❌ Error: " + e.getMessage());
         }
@@ -569,7 +569,7 @@ public class ClinicConsoleApp {
             );
             
             MedicalRecord created = medicalAttentionUseCase.createMedicalRecord(record);
-            System.out.println("✅ Historia clínica creada exitosamente.");
+			System.out.println("✅ Historia clínica creada exitosamente." + " el dia: " + created.getDate());
         } catch (Exception e) {
             System.out.println("❌ Error: " + e.getMessage());
         }

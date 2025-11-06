@@ -10,7 +10,7 @@ public class DiagnosticAidBuilder {
 	public DiagnosticAid build(String name, String description, String cost, String requirements) 
 		throws Exception {
 		DiagnosticAid diagnosticAid = new DiagnosticAid();
-		diagnosticAid.setName(diagnosticAidValidator.nameValidator(name));
+		diagnosticAid.setOrderNumber(diagnosticAidValidator.nameValidator(name));
 		diagnosticAid.setDescription(diagnosticAidValidator.descriptionValidator(description));
 		diagnosticAid.setCost(diagnosticAidValidator.costValidator(cost));
 		diagnosticAid.setRequirements(diagnosticAidValidator.requirementsValidator(requirements));
