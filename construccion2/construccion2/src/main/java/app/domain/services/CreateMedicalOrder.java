@@ -72,7 +72,7 @@ public class CreateMedicalOrder {
         		throw new Exception("No pueden existir dos elementos con el mismo ítem en la misma orden");
         	}
 
-        	if (type == MedicalItemType.DIAGNOSTIC) {
+        	if (type == MedicalItemType.DIAGNOSTIC_AID) {
         		hasDiagnostic = true;
         	} else if (type == MedicalItemType.MEDICATION || type == MedicalItemType.PROCEDURE) {
         		hasMedOrProc = true;

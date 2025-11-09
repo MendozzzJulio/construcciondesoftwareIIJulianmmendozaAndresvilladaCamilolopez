@@ -13,7 +13,7 @@ public enum MedicalItemType {
 
 	PROCEDURE,
     MEDICATION,
-    DIAGNOSTIC,
+    DIAGNOSTIC_AID,
     RECOMMENDATION
 
 
