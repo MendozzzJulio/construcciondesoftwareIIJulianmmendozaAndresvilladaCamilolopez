@@ -1,0 +1,36 @@
+# Configuración de la aplicación médica
+server:
+  port: 8080
+
+spring:
+  application:
+    name: medical-billing-system
+  
+  # Configuración de base de datos (ajustar según tu configuración)
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  
+  h2:
+    console:
+      enabled: true
+
+# Configuración JWT
+jwt:
+  secret: mySecretKeyForMedicalBillingSystemThatShouldBeVeryLongAndSecure123456789
+  expiration: 86400 # 24 horas en segundos
+
+# Configuración de logging
+logging:
+  level:
+    app.infrastructure.adapter.security: DEBUG
+    org.springframework.security: DEBUG
+    root: INFO
