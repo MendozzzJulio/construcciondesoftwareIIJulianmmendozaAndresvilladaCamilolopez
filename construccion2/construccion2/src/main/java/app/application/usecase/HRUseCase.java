@@ -27,27 +27,27 @@ public class HRUseCase {
 	
 	/**
 	 * Crear un nuevo empleado en el sistema
-	 * Solo usuarios con rol ADMINISTRATIVE pueden ejecutar esta acción
+	 * Solo usuarios con rol HR pueden ejecutar esta acción
 	 */
-	public void createEmployee(User employee, User hrUser) throws Exception {
-		createUser.create(employee, hrUser);
+	public void createEmployee(User employee) throws Exception {
+		createUser.create(employee);
 	}
 	
 	/**
 	 * Actualizar información de un empleado existente
-	 * Solo usuarios con rol ADMINISTRATIVE pueden ejecutar esta acción
+	 * Solo usuarios con rol HR pueden ejecutar esta acción
 	 */
-	public void updateEmployee(User employee, User hrUser) throws Exception {
-		updateUser.update(employee, hrUser);
+	public void updateEmployee(User employee) throws Exception {
+		updateUser.update(employee);
 	}
 	
 	/**
 	 * Eliminar un empleado del sistema
-	 * Solo usuarios con rol ADMINISTRATIVE pueden ejecutar esta acción
+	 * Solo usuarios con rol HR pueden ejecutar esta acción
 	 * No se puede eliminar a otros usuarios administrativos
 	 */
-	public void deleteEmployee(User employee, User hrUser) throws Exception {
-		deleteUser.delete(employee, hrUser);
+	public void deleteEmployee(User employee) throws Exception {
+		deleteUser.delete(employee);
 	}
 	
 	/**

@@ -3,11 +3,8 @@ package app.domain.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import app.domain.entities.Patient;
-import app.domain.entities.User;
 import app.domain.entities.enums.Role;
-import app.domain.ports.UserPort;
 import app.domain.ports.PatientPort;
 import app.domain.entities.valueobjects.PhoneNumber;
 
@@ -16,20 +13,18 @@ import app.domain.entities.valueobjects.PhoneNumber;
  
 @Service
 public class CreatePatient {  
-	@Autowired  // Inyección de dependencias para acceder a los datos de usuarios y pacientes
-	private UserPort userPort;
-	@Autowired
+	@Autowired  // Inyección de dependencias para acceder a los datos de usuarios y paciente
 	private PatientPort patientPort;
+	@Autowired
+	private AuthenticationService authenticationService;
 		
-	public void create(Patient patient, User creator) throws Exception {
+	public void create(Patient patient) throws Exception {
 		
 		// EL PERSONAL ADMINISTRATIVO TAMBIEN TIENE ACCESO A CREAR PACIENTES 
-		// HAY QUE VALIDAR ESO TAMBIEN!
-	
-		// Validamos que sea creado por un Medico	
-		if (userPort.findById(creator) == null || creator.getRole() != Role.DOCTOR) {
-			throw new Exception("Solo un doctor puede crear pacientes.");
-		}
+		// HAY QUE VALIDAR ESO TAMBIEN! R// sugerencia resulta por camilinPimguin
+		
+		// Validamos que sea creado por un Medico o un rol administrativo
+		authenticationService.validateUserRoles(Role.DOCTOR, Role.ADMINISTRATIVE);
 		
 		// Validación: Verificamos si ya existe un enfermo  con el mismo documento
 		if(patientPort.findByDocument(patient)!=null) {

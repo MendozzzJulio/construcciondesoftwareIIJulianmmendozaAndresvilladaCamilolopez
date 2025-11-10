@@ -11,26 +11,19 @@ import app.domain.ports.UserPort;
 public class CreateUser {
 	@Autowired  
 	private UserPort userPort;
+	 @Autowired
+	 private AuthenticationService authenticationService;
 	
-	public void create(User employee, User adminUser) throws Exception {
+	public void create(User employee) throws Exception {
 		
+		// VALIDACIÓN DE ROL - Sin parámetros adicionales
+        authenticationService.validateUserRole(Role.HR);
+        
 		if (employee == null) {
 			throw new Exception("El empleado no puede ser nulo");
 		}
 		
-		if (adminUser == null) {
-			throw new Exception("Se requiere un usuario administrador para crear empleados");
-		}
-		
-		User admin = userPort.findById(adminUser);
-		if (admin == null) {
-			throw new Exception("El usuario administrador no existe en el sistema");
-		}
-		
-		if (!admin.getRole().equals(Role.ADMINISTRATIVE)) {
-			throw new Exception("Solo usuarios de Recursos Humanos pueden crear empleados");
-		}
-		
+	
 		if (employee.getName() == null || employee.getName().trim().isEmpty()) {
 			throw new Exception("El nombre del empleado es obligatorio");
 		}

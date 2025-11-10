@@ -17,7 +17,8 @@ public abstract class Person {
 	private Address address;
 	private PhoneNumber phoneNumber;
 	private LocalDate dateOfBirth;
-	private User doctorId;
+	
+	
 	
 	public long getId() {
 		return id;
@@ -73,12 +74,7 @@ public abstract class Person {
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public User getDoctorId() {
-		return doctorId;
-	}
-	public void setDoctorId(User doctorId) {
-		this.doctorId = doctorId;
-	}
+	
 	
 	
 	

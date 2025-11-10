@@ -7,15 +7,11 @@ public class MedicalRecordBuilder {
 	
 	private MedicalRecordValidator medicalRecordValidator;
 
-	public MedicalRecord build(String patientId, String doctorId, String date, String diagnosis, String treatment, String notes) 
+	public MedicalRecord build(String patient, String doctor,  String symptomatology, String bloodPressure, String temperture, String pulse, String oxygenLevel, String date) 
 		throws Exception {
 		MedicalRecord medicalRecord = new MedicalRecord();
-		medicalRecord.setPatientId(medicalRecordValidator.patientIdValidator(patientId));
-		medicalRecord.setDoctorId(medicalRecordValidator.doctorIdValidator(doctorId));
+		medicalRecord.setPatient(medicalRecordValidator.patientIdValidator(patient));
 		medicalRecord.setDate(medicalRecordValidator.dateValidator(date));
-		medicalRecord.setDiagnosis(medicalRecordValidator.diagnosisValidator(diagnosis));
-		medicalRecord.setTreatment(medicalRecordValidator.treatmentValidator(treatment));
-		medicalRecord.setNotes(medicalRecordValidator.notesValidator(notes));
 		
 		return medicalRecord;
 	}

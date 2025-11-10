@@ -1,5 +1,8 @@
 package app.domain.entities;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.util.List;
 
 /** lo hace camilinPimguin 
  * Clase que representa la facturación.
@@ -23,6 +26,16 @@ public class Billing {
 	private Patient patient; // accedo al nombre del paciente, edad y cedula
 	private MedicalInsurance medicalInsurance; // accedo a los datos del seguro medico
 	
+	// Campos adicionales para la facturación completa
+	private Date date;
+	private List<MedicalOrder> medicalOrders; // órdenes médicas del paciente
+	private BigDecimal totalAmount; // monto total de los servicios
+	private BigDecimal copayAmount; // monto del copago
+	private BigDecimal insuranceAmount; // monto a cargo de la aseguradora
+	private BigDecimal patientAmount; // monto a cargo del paciente
+	private String billingDetails; // detalles de la facturación
+	private BigDecimal yearlyCopayCumulative; // copago acumulado en el año
+	
 	
 	public User getUser() {
 		return user;
@@ -42,6 +55,54 @@ public class Billing {
 	public void setMedicalInsurance(MedicalInsurance medicalInsurance) {
 		this.medicalInsurance = medicalInsurance;
 	}
-
+	
+	public Date getBillingDate() {
+		return date;
+	}
+	public void seDate(Date date) {
+		this.date = date;
+	}
+	public List<MedicalOrder> getMedicalOrders() {
+		return medicalOrders;
+	}
+	public void setMedicalOrders(List<MedicalOrder> medicalOrders) {
+		this.medicalOrders = medicalOrders;
+	}
+	public BigDecimal getTotalAmount() {
+		return totalAmount;
+	}
+	public void setTotalAmount(BigDecimal totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+	public BigDecimal getCopayAmount() {
+		return copayAmount;
+	}
+	public void setCopayAmount(BigDecimal copayAmount) {
+		this.copayAmount = copayAmount;
+	}
+	public BigDecimal getInsuranceAmount() {
+		return insuranceAmount;
+	}
+	public void setInsuranceAmount(BigDecimal insuranceAmount) {
+		this.insuranceAmount = insuranceAmount;
+	}
+	public BigDecimal getPatientAmount() {
+		return patientAmount;
+	}
+	public void setPatientAmount(BigDecimal patientAmount) {
+		this.patientAmount = patientAmount;
+	}
+	public String getBillingDetails() {
+		return billingDetails;
+	}
+	public void setBillingDetails(String billingDetails) {
+		this.billingDetails = billingDetails;
+	}
+	public BigDecimal getYearlyCopayCumulative() {
+		return yearlyCopayCumulative;
+	}
+	public void setYearlyCopayCumulative(BigDecimal yearlyCopayCumulative) {
+		this.yearlyCopayCumulative = yearlyCopayCumulative;
+	}
 
 }

@@ -30,7 +30,7 @@ public class AdminUseCase {
 	
 	// Método para crear el enfermo 
 	public void createPatient(Patient patient) throws Exception {
-		createPatient.create(patient, null);
+		createPatient.create(patient);
 	}
 	// Método para actualizar el  enfermo 
 	public void updatePatient(Patient patient) throws Exception {	

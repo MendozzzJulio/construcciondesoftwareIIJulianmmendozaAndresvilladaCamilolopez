@@ -19,6 +19,7 @@ public class CreateAppointment {
 	private UserPort userPort;
 	@Autowired
 	private PatientPort patientPort;
+	
 
     public void create(Appointment appointment) throws Exception {
         

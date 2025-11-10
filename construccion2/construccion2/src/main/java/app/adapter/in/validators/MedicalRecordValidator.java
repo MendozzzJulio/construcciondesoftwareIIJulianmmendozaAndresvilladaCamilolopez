@@ -2,10 +2,15 @@ package app.adapter.in.validators;
 
 import java.sql.Date;
 
+import app.domain.entities.Patient;
+
 public class MedicalRecordValidator extends SimpleValidator {
 	
-	public long patientIdValidator(String value) throws Exception {
-		return longValidator("ID del paciente", value);
+	public Patient patientValidator(String patientId) throws Exception {
+		long id = longValidator("id del paciente", patientId);
+		Patient p = new Patient();
+		p.setId(id);
+		return p;
 	}
 
 	public long doctorIdValidator(String value) throws Exception {

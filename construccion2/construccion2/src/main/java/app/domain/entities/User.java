@@ -8,10 +8,8 @@ public class User extends Person{
 	private String username;
 	private String password;
 	private Role role;
-	private Role administrative;
 	
 	
-
 	
 	public String getUsername() {
 		return username;
@@ -31,12 +29,7 @@ public class User extends Person{
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	public Role getAdministrative() {
-		return administrative;
-	}
-	public void setAdministrative(Role administrative) {
-		this.administrative = administrative;
-	}
+
 	
 	
 

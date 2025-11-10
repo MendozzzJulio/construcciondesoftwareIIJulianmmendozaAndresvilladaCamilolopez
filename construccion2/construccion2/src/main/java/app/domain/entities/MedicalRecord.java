@@ -5,10 +5,12 @@ import java.sql.Date;
 public class MedicalRecord {
 	
 	private User doctor;
-	private long doctorDocument;
+	
 	private String symptomatology;
-	private String reasonConsultation;
-	private String diagnosis;
+	private double bloodPressure;
+	private double temperature;
+	private int pulse;
+	private int oxygenLevel;
 	private Date date;
 	private Patient patient;
 	
@@ -19,32 +21,41 @@ public class MedicalRecord {
 	public void setDoctor(User doctor) {
 		this.doctor = doctor;
 	}
-	public long getDoctorDocument() {
-		return doctorDocument;
-	}
-	public void setDoctorDocument(long doctorDocument) {
-		this.doctorDocument = doctorDocument;
-	}
+
 	public String getSymptomatology() {
 		return symptomatology;
 	}
 	public void setSymptomatology(String symptomatology) {
 		this.symptomatology = symptomatology;
 	}
-	public String getReasonConsultation() {
-		return reasonConsultation;
-	}
-	public void setReasonConsultation(String reasonConsultation) {
-		this.reasonConsultation = reasonConsultation;
-	}
-	public String getDiagnosis() {
-		return diagnosis;
-	}
-	public void setDiagnosis(String diagnosis) {
-		this.diagnosis = diagnosis;
-	}
+	
 	public Date getDate() {
 		return date;
+	}
+
+	public double getBloodPressure() {
+		return bloodPressure;
+	}
+	public void setBloodPressure(double bloodPressure) {
+		this.bloodPressure = bloodPressure;
+	}
+	public double getTemperature() {
+		return temperature;
+	}
+	public void setTemperature(double temperature) {
+		this.temperature = temperature;
+	}
+	public int getPulse() {
+		return pulse;
+	}
+	public void setPulse(int pulse) {
+		this.pulse = pulse;
+	}
+	public int getOxygenLevel() {
+		return oxygenLevel;
+	}
+	public void setOxygenLevel(int oxygenLevel) {
+		this.oxygenLevel = oxygenLevel;
 	}
 	public void setDate(Date date) {
 		this.date = date;
