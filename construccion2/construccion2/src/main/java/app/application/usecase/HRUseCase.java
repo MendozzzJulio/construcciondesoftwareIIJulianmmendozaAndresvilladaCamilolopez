@@ -28,8 +28,10 @@ public class HRUseCase {
 	/**
 	 * Crear un nuevo empleado en el sistema
 	 * Solo usuarios con rol HR pueden ejecutar esta acción
+	 * y toca poner el parametro hrUser para que funcione en el hrclient, ya que si solo lo dejamos 
+	 * con un solo parametro  nos va dar error en el hrclient al momento de llamar este metodo
 	 */
-	public void createEmployee(User employee) throws Exception {
+	public void createEmployee(User employee, User hrUser) throws Exception {
 		createUser.create(employee);
 	}
 	
@@ -37,7 +39,7 @@ public class HRUseCase {
 	 * Actualizar información de un empleado existente
 	 * Solo usuarios con rol HR pueden ejecutar esta acción
 	 */
-	public void updateEmployee(User employee) throws Exception {
+	public void updateEmployee(User employee, User hrUser) throws Exception {
 		updateUser.update(employee);
 	}
 	
@@ -46,7 +48,7 @@ public class HRUseCase {
 	 * Solo usuarios con rol HR pueden ejecutar esta acción
 	 * No se puede eliminar a otros usuarios administrativos
 	 */
-	public void deleteEmployee(User employee) throws Exception {
+	public void deleteEmployee(User employee, User hrUser) throws Exception {
 		deleteUser.delete(employee);
 	}
 	
@@ -70,4 +72,6 @@ public class HRUseCase {
 	public User searchEmployeeByUsername(User employee) throws Exception {
 		return searchUser.searchByUsername(employee);
 	}
+
+	
 }

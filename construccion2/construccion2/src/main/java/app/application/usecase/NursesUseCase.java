@@ -31,7 +31,7 @@ public class NursesUseCase {
 	 * Las enfermeras pueden documentar visitas y intervenciones
 	 */
 	public void registerVisit(Visit visit) throws Exception {
-		createVisit.create(visit);
+		createVisit.createVisit(visit);
 	}
 	
 	/**

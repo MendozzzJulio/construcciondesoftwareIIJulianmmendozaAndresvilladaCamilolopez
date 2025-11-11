@@ -10,12 +10,16 @@ public class VisitBuilder {
 	public Visit build(String patientId, String doctorId, String date, String reason, String notes, String status) 
 		throws Exception {
 		Visit visit = new Visit();
-		visit.setPatientId(visitValidator.patientIdValidator(patientId));
-		visit.setDoctorId(visitValidator.doctorIdValidator(doctorId));
+		visit.setPatient(visitValidator.patientIdValidator(patientId));
+		visit.setDoctor(visitValidator.userdoctoridValidator(doctorId));
 		visit.setDate(visitValidator.dateValidator(date));
 		visit.setReason(visitValidator.reasonValidator(reason));
 		visit.setNotes(visitValidator.notesValidator(notes));
-		visit.setStatus(visitValidator.statusValidator(status));
+		visit.setStatus(visitValidator.statusValidator(status)); /*
+																	 * Aquí se asume que la clase Visit tiene un método
+																	 * setStatus para establecer el estado de la visita.
+																	 * pero no lo tiene y no se si eso es un boolean.
+																	 */
 		
 		return visit;
 	}

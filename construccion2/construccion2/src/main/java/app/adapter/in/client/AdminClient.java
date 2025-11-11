@@ -10,7 +10,7 @@ import java.util.Scanner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import app.application.usecase.AdministrativeUseCase;
+import app.application.usecase.AdminUseCase;
 import app.domain.entities.Appointment;
 import app.domain.entities.Billing;
 import app.domain.entities.EmergencyContact;
@@ -27,7 +27,7 @@ public class AdminClient {
 	private static Scanner reader = new Scanner(System.in);
 	
 	@Autowired
-	private AdministrativeUseCase administrativeUseCase;
+	private AdminUseCase adminUseCase;
 	@Autowired
 	private PatientBuilders patientBuilders;
 	@Autowired
@@ -53,21 +53,21 @@ public class AdminClient {
 			case "1":{
 				// Crear paciente
 				Patient patient = readInfoFromPatient();
-				administrativeUseCase.createPatient(patient);
+				adminUseCase.createPatient(patient);
 				System.out.println("Paciente creado exitosamente");
 				return true;
 			}
 			case "2": {
 				// Crear cita médica
 				Appointment appointment = readInfoFromAppointment();
-				administrativeUseCase.createAppointment(appointment);
+				adminUseCase.createAppointment(appointment);
 				System.out.println("Cita médica creada exitosamente");
 				return true;
 			}
 			case "3": {
 				// Crear factura
 				Billing billing = readInfoFromBilling();
-				administrativeUseCase.createBilling(billing);
+				adminUseCase.createBilling(billing);
 				System.out.println("Factura creada exitosamente");
 				return true;
 			}
@@ -77,14 +77,14 @@ public class AdminClient {
 				long id = Long.parseLong(reader.nextLine());
 				Patient patient = readInfoFromPatient();
 				patient.setId(id);
-				administrativeUseCase.updatePatient(patient);
+				adminUseCase.updatePatient(patient);
 				System.out.println("Paciente actualizado exitosamente");
 				return true;
 			}
 			case "5": {
 				// Crear contacto de emergencia
 				EmergencyContact emergencyContact = readInfoFromEmergencyContact();
-				administrativeUseCase.createEmergencyContact(emergencyContact);
+				adminUseCase.createEmergencyContact(emergencyContact);
 				System.out.println("Contacto de emergencia creado exitosamente");
 				return true;
 			}
@@ -92,10 +92,10 @@ public class AdminClient {
 				// Buscar paciente
 				System.out.println("Ingrese el id del paciente a buscar:");
 				long id = Long.parseLong(reader.nextLine());
-				Patient searchPatient = new Patient();
-				searchPatient.setId(id);
-				Patient foundPatient = administrativeUseCase.searchPatient(searchPatient);
-				System.out.println("Paciente encontrado: " + foundPatient.getName() + " " + foundPatient.getLastName());
+				Patient patient = readInfoFromUpdatePatient();
+				patient.setId(id);
+				adminUseCase.searchPatient(patient);
+				System.out.println("Búsqueda de paciente realizada exitosamente");
 				return true;
 			}
 			case "7": {
@@ -120,6 +120,38 @@ public class AdminClient {
 	}
 	
 	
+	private Patient readInfoFromUpdatePatient() throws Exception{
+		/**
+		 * Solicita al administrador la información necesaria para actualizar un paciente.
+		 * pero creo que los mensajes deben de ser diferentes ya que es para actualizar una 
+		 * informacion ya existentes
+		 */
+		
+	System.out.println("Ingrese el numero de cedula del paciente.");
+    String document = reader.nextLine();
+    System.out.println("Ingrese el nombre del paciente.");
+    String name = reader.nextLine();
+    System.out.println("Ingrese los apellidos del paciente del paciente.");
+    String lastName = reader.nextLine();
+    System.out.println("Ingrese el correo electronico del paciente del paciente.");
+    String email = reader.nextLine();
+    System.out.println("Ingrese la direccion del paciente.");
+    String address = reader.nextLine();
+    System.out.println("Ingrese el numero de telefono del paciente.");
+    String phoneNumber = reader.nextLine();
+    System.out.println("Ingrese la fecha de nacimiento del paciente.");
+    String dateOfBirth = reader.nextLine();
+    System.out.println("Ingrese el genero del paciente.");
+    String gender = reader.nextLine();
+    System.out.println("Ingrese el peso del paciente.");
+    String weight = reader.nextLine();
+    System.out.println("Ingrese la altura del paciente.");
+    String height = reader.nextLine();
+    
+	return patientBuilders.build(name, lastName, document, email, phoneNumber, address, dateOfBirth,gender, weight, height);
+}
+
+
 	private Patient readInfoFromPatient() throws Exception {
  /**
  * Solicita al administrador la información necesaria para crear un paciente.
@@ -175,6 +207,10 @@ public class AdminClient {
 		String details = reader.nextLine();
 		
 		return billingBuilders.build(patientId, totalAmount, copayment, date, details);
+		/**
+		 * aca hay un error por que el metodo build de billing builders no tiene esos parametros
+		 * y ademas esta esperando mas parametros
+		 */
 	}
 	
 	private EmergencyContact readInfoFromEmergencyContact() throws Exception {

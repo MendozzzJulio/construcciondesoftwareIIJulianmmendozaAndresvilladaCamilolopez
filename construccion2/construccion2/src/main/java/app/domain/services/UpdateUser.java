@@ -13,17 +13,18 @@ public class UpdateUser {
 	@Autowired
 	private UserPort userPort;
 	
-	public void update(User user, User adminUser) throws Exception {
+	public void update(User employee) throws Exception {
 		
-		if (user == null) {
+		if (employee == null) {
 			throw new Exception("El usuario a actualizar no puede ser nulo");
 		}
 		
-		if (adminUser == null) {
+		if (employee == null) {
 			throw new Exception("Se requiere un usuario administrador para actualizar usuarios");
-		}
+			}
 		
-		User admin = userPort.findById(adminUser);
+		
+		User admin = userPort.findById(employee);
 		if (admin == null) {
 			throw new Exception("El usuario administrador no existe en el sistema");
 		}
@@ -32,45 +33,47 @@ public class UpdateUser {
 			throw new Exception("Solo usuarios de Recursos Humanos pueden actualizar usuarios");
 		}
 		
-		User existingUser = userPort.findById(user);
+		User existingUser = userPort.findById(employee);
 		if (existingUser == null) {
 			throw new Exception("El usuario a actualizar no existe en el sistema");
 		}
 		
-		if (user.getName() != null && !user.getName().trim().isEmpty()) {
-			existingUser.setName(user.getName());
+		if (employee.getName() != null && !employee.getName().trim().isEmpty()) {
+			existingUser.setName(employee.getName());
 		}
 		
-		if (user.getLastName() != null && !user.getLastName().trim().isEmpty()) {
-			existingUser.setLastName(user.getLastName());
+		if (employee.getLastName() != null && !employee.getLastName().trim().isEmpty()) {
+			existingUser.setLastName(employee.getLastName());
 		}
 		
-		if (user.getEmail() != null) {
-			existingUser.setEmail(user.getEmail());
+		if (employee.getEmail() != null) {
+			existingUser.setEmail(employee.getEmail());
 		}
 		
-		if (user.getPhoneNumber() != null) {
-			existingUser.setPhoneNumber(user.getPhoneNumber());
+		if (employee.getPhoneNumber() != null) {
+			existingUser.setPhoneNumber(employee.getPhoneNumber());
 		}
 		
-		if (user.getAddress() != null) {
-			existingUser.setAddress(user.getAddress());
+		if (employee.getAddress() != null) {
+			existingUser.setAddress(employee.getAddress());
 		}
 		
-		if (user.getUsername() != null && !user.getUsername().trim().isEmpty()) {
-			User existingByUsername = userPort.findByUsername(user);
-			if (existingByUsername != null && !existingByUsername.getId().equals(existingUser.getId())) {
+		if (employee.getUsername() != null && !employee.getUsername().trim().isEmpty()) {
+			User existingByUsername = userPort.findByUsername(employee);
+			if (existingByUsername != null && existingByUsername.getId() != existingUser.getId()) {
 				throw new Exception("Ya existe otro usuario con ese nombre de usuario");
 			}
-			existingUser.setUsername(user.getUsername());
+			// Error que habia en la linea 62 era porque  getId() retorna un tipo primitivo long, y los tipos primitivos no tienen métodos como equals().
+			//Para comparar dos valores long, debes usar el operador == en vez de .equals().
+			existingUser.setUsername(employee.getUsername());
 		}
 		
-		if (user.getPassword() != null && !user.getPassword().trim().isEmpty()) {
-			existingUser.setPassword(user.getPassword());
+		if (employee.getPassword() != null && !employee.getPassword().trim().isEmpty()) {
+			existingUser.setPassword(employee.getPassword());
 		}
 		
-		if (user.getRole() != null) {
-			existingUser.setRole(user.getRole());
+		if (employee.getRole() != null) {
+			existingUser.setRole(employee.getRole());
 		}
 		
 		userPort.save(existingUser);

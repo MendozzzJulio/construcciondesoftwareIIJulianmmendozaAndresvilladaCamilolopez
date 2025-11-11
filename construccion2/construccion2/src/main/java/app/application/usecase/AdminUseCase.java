@@ -10,6 +10,7 @@ import app.domain.entities.Patient;
 import app.domain.services.CreateBilling;
 import app.domain.services.CreateEmergencyContact;
 import app.domain.services.CreatePatient;
+import app.domain.services.SearchPatient;
 import app.domain.services.UpdatePatient;
 import app.domain.services.CreateAppointment;
 
@@ -20,13 +21,16 @@ public class AdminUseCase {
 	@Autowired
 	private CreatePatient createPatient;
 	@Autowired
+	private UpdatePatient updatePatient;
+	@Autowired
+	private SearchPatient searchPatient;
+	@Autowired
 	private CreateAppointment createAppointment;
 	@Autowired
 	private CreateBilling createBilling;
 	@Autowired
 	private CreateEmergencyContact createEmergencyContact;
-	@Autowired
-	private UpdatePatient updatePatient;
+	
 	
 	// Método para crear el enfermo 
 	public void createPatient(Patient patient) throws Exception {
@@ -35,6 +39,10 @@ public class AdminUseCase {
 	// Método para actualizar el  enfermo 
 	public void updatePatient(Patient patient) throws Exception {	
 		updatePatient.update(patient);		
+	}
+	// Método para buscar el enfermo
+	public void searchPatient(Patient patient) throws Exception {
+		searchPatient.search(patient);
 	}
 	// Método para crear la cita y que tales 
 	public void createAppointment(Appointment appointment) throws Exception {	

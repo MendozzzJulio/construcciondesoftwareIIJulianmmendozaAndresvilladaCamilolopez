@@ -205,7 +205,7 @@ public class CreateBilling {
 		details.append("\n=== RESUMEN FINANCIERO ===\n");
 		details.append("Costo Total de Servicios: $").append(billing.getTotalAmount()).append("\n");
 		
-		if (billing.isHasActivePolicy()) {
+		if (billing.getMedicalInsurance() != null && billing.getMedicalInsurance().isPolicyStatus()) {
 			details.append("Copago del Paciente: $").append(billing.getPatientAmount()).append("\n");
 			details.append("A cargo de la Aseguradora: $").append(billing.getInsuranceAmount()).append("\n");
 			if (billing.getYearlyCopayCumulative() != null) {

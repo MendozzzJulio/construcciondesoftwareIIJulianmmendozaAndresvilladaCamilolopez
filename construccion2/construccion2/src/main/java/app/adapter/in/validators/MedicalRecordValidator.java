@@ -33,4 +33,6 @@ public class MedicalRecordValidator extends SimpleValidator {
 	public String notesValidator(String value) throws Exception {
 		return stringValidator("notas", value);
 	}
+
+	
 }

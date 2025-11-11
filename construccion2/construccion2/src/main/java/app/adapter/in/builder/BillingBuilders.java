@@ -9,8 +9,6 @@ import app.domain.entities.User;
 
 public class BillingBuilders {
 	
-
-	
 	private PatientValidator patientValidator;
 	
 	private UserValidator userValidator;

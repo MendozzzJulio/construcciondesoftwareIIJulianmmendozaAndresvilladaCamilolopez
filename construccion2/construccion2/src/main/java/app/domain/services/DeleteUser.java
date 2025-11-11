@@ -13,17 +13,17 @@ public class DeleteUser {
 	@Autowired
 	private UserPort userPort;
 
-	public void delete(User user, User adminUser) throws Exception {
+	public void delete(User employee) throws Exception {
 		
-		if (user == null) {
+		if (employee == null) {
 			throw new Exception("El usuario a eliminar no puede ser nulo");
 		}
 		
-		if (adminUser == null) {
+		if (employee == null) {
 			throw new Exception("Se requiere un usuario administrador para eliminar usuarios");
 		}
 		
-		User admin = userPort.findById(adminUser);
+		User admin = userPort.findById(employee);
 		if (admin == null) {
 			throw new Exception("El usuario administrador no existe en el sistema");
 		}
@@ -32,15 +32,15 @@ public class DeleteUser {
 			throw new Exception("Solo usuarios de Recursos Humanos pueden eliminar usuarios");
 		}
 		
-		User existingUser = userPort.findById(user);
+		User existingUser = userPort.findById(employee);
 		if (existingUser == null) {
 			throw new Exception("El usuario a eliminar no existe en el sistema");
 		}
 		
-		if (existingUser.getRole().equals(Role.ADMINISTRATIVE) && !admin.getId().equals(existingUser.getId())) {
+		if (existingUser.getRole().equals(Role.ADMINISTRATIVE) && admin.getId() != existingUser.getId()) {
 			throw new Exception("No se puede eliminar otro usuario administrativo");
 		}
 		
-		userPort.delete(user);
+		userPort.delete(employee);
 	}
 }
