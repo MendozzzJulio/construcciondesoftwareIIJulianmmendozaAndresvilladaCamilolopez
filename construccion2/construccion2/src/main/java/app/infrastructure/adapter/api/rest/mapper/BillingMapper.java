@@ -150,7 +150,7 @@ public class BillingMapper {
         response.setCopayAmount(billing.getCopayAmount());
         response.setInsuranceAmount(billing.getInsuranceAmount());
         response.setPatientAmount(billing.getPatientAmount());
-        response.setHasActivePolicy(billing.isHasActivePolicy());
+        response.setHasActivePolicy(billing.HasActivePolicy());
         response.setYearlyCopayCumulative(billing.getYearlyCopayCumulative());
         
         // Detalles de facturación

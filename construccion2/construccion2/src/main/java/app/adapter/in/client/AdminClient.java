@@ -205,6 +205,9 @@ public class AdminClient {
 		String date = reader.nextLine();
 		System.out.println("Ingrese detalles adicionales:");
 		String details = reader.nextLine();
+		System.out.println("Ingrese el metodo de pago:");
+		String paymentMethod = reader.nextLine();
+		
 		
 		return billingBuilders.build(patientId, totalAmount, copayment, date, details);
 		/**

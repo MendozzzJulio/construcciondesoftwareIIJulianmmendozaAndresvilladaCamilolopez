@@ -7,6 +7,7 @@ import app.domain.entities.Patient;
 import app.domain.entities.Visit;
 import app.domain.ports.PatientPort;
 import app.domain.ports.VisitPort;
+import app.domain.entities.MedicalRecord;
 
 // Servicio para crear una visita médica asociada a un paciente registrado
 
@@ -16,6 +17,8 @@ public class CreateVisit {
 	private VisitPort visitPort;
 	@Autowired
 	private PatientPort patientPort;
+	
+	private MedicalRecord medicalRecord;
 	
 	public void createVisit(Visit visit) throws Exception {
 		Patient patient = patientPort.findByDocument(visit.getPatient());
@@ -27,7 +30,7 @@ public class CreateVisit {
 		visit.setPatient(patient);
 		
 		// validamos la presion arterial que se encuentre en un rango valido y que no se nos vaya a ir al mas alla 
-		if (visit.getBloodPressure() == 0 || visit.getBloodPressure() < 50 || visit.getBloodPressure() > 250) {
+		if (medicalRecord.getBloodPressure() == 0 || visit.getBloodPressure() < 50 || visit.getBloodPressure() > 250) {
 			throw new Exception(" La presion arterial debe estar en un rango valido");
 		}
 		//validamos la temperatura corporal que no este muy hot ni muy ice 

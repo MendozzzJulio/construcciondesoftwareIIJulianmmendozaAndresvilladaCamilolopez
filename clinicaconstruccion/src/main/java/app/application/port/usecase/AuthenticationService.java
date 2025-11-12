@@ -31,7 +31,7 @@ public class AuthenticationService implements AuthenticationUseCase {
         }
 
         // Generar token JWT con el rol (sin prefijo, se agregará en JwtUtil)
-        String token = jwtUtil.generateToken(user.getEmail(), user.getRole().name());
+        String token = jwtUtil.generateToken(user.getEmail(), String.valueOf(user.getRole()));
 
         // Retornar respuesta con token y datos del usuario
         return new LoginResponse(
